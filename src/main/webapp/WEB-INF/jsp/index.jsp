@@ -6,9 +6,6 @@
   <head>
   	<!-- header -->
     	<%@ include file="includes/header.jsp" %>
-    <!-- CUSTOM CSS ---->
-    <c:url value='/css/accueil.css' var="accueilCssUrl"/>
-	<link href="${accueilCssUrl}" rel="stylesheet">
   </head>
   <body>
   
@@ -35,7 +32,6 @@
 
 	<!--  footer -->
 	<%@ include file="includes/footer.jsp" %>	
-    <c:url value="/js/index.js" var="indexJsUrl"/>
-	<script src="${indexJsUrl}"></script>
+	
   </body>
 </html>

@@ -11,7 +11,7 @@ body {
 .jumbotron {
 	margin-top: -50px;
 	height:220px;
-	background-color: #0099FF;
+	background-color: #00BFFF;
 	text-shadow: 0px 0px 5px #000;
 	color: #ccc;
 	-webkit-text-fill-color: white;
@@ -94,8 +94,8 @@ div.fontEdit {
 #case:focus {
 	border-color: rgb(104, 145, 162);
 	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #0099FF;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #0099FF;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #00BFFF;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #00BFFF;
 }
 
 .imie .push{
@@ -236,8 +236,8 @@ input:hover,
 input:focus {
 	border-color: rgb(104, 145, 162);
 	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #FE9900;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #FE9900;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #00BFFF;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #00BFFF;
 }
 	
 .formulaireSubmit {
@@ -278,3 +278,18 @@ input:focus {
 	color: #fff;
 }
 
+/* ======================================================================
+=============================== bouttons d'actions =========================
+=======================================================================*/
+
+.boutton{
+	padding:1em;
+}
+
+/* ======================================================================
+=============================== labels form  =========================
+=======================================================================*/
+
+.mesLabels{
+	width:100em;
+}
