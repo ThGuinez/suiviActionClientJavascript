@@ -9,6 +9,9 @@
 <c:url value='/css/base.css' var="baseCssUrl"/>
 <link href="${baseCssUrl}" rel="stylesheet">
 
+<!--  jQuery UI -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/cupertino/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <!-- GOOGLE FONT ---->
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>

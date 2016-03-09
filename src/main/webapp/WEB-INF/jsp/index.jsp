@@ -4,17 +4,36 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-  
-  	<%@ include file="includes/header.jsp" %>
-
+  	<!-- header -->
+    	<%@ include file="includes/header.jsp" %>
     <!-- CUSTOM CSS ---->
     <c:url value='/css/accueil.css' var="accueilCssUrl"/>
 	<link href="${accueilCssUrl}" rel="stylesheet">
   </head>
   <body>
-  	<%@ include file="includes/navbar.jsp" %>
+  
+  	<!-- navBar -->
+   	<%@ include file="includes/navbar.jsp" %>
 
+	<!-- recherche -->
+	<%@ include file="includes/recherche.jsp" %>	
 
+	<!-- tableau -->
+	<%@ include file="includes/tableau.jsp" %>	
+
+	<!-- ajoutClient -->
+	<%@ include file="includes/ajoutClient.jsp" %>	
+	
+	<!--  ajoutAction -->
+	<%@ include file="includes/ajoutAction.jsp" %>	
+
+	<!--  suppresionAction -->
+	<%@ include file="includes/suppresionAction.jsp" %>		
+
+	<!--  historiqueEtats -->
+	<%@ include file="includes/historiqueEtats.jsp" %>			
+
+	<!--  footer -->
 	<%@ include file="includes/footer.jsp" %>	
     <c:url value="/js/index.js" var="indexJsUrl"/>
 	<script src="${indexJsUrl}"></script>
