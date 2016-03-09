@@ -90,14 +90,12 @@
 .form-signin .form-control:focus {
     border-color: rgb(104, 145, 162);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #FE9900;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #FE9900;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #0099FF;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #0099FF;
 }
 
 .btn.btn-signin {
-    /*background-color: #FE9900; */
-    background-color: #FE9900;
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    background-color: #0099FF;
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -111,6 +109,7 @@
     -webkit-transition: all 0.218s;
     transition: all 0.218s;
 	border: 1px solid #222;
+	color:black;
 }
 
 .btn.btn-signin:hover,

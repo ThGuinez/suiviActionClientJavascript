@@ -17,9 +17,9 @@
 <!------------------------------------>
 	<div class="jumbotron">
 		<div class="container-jumbotron">
-			<h1>LudoGiciel</h1>
+			<h1>Suivi d'actions Clients</h1>
 			<hr>
-			<p>Solution de gestion de ludothèque</p>
+			<p>LA solution de suivi d'actions clients</p>
 
 		</div>
     </div>
@@ -78,9 +78,6 @@
 					value="${_csrf.token}"/>
                 <button class="btn btn-lg btn-primary btn-block btn-signin btnbase" type="submit" name="submit">Connexion</button>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
-				Mot de passe perdu?
-            </a>
         </div><!-- /card-container -->
     </div><!-- /container -->
 	
