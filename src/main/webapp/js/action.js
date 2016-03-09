@@ -33,6 +33,5 @@ listeAct.supprimer(listeAct.tableauActions,action2);
 
 localStorage.listeActions = JSON.stringify(listeAct.tableauActions);
 
-var tableauActions = [];
 tableauActions = JSON.parse(localStorage.getItem('listeActions'));
 */
