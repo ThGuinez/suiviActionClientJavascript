@@ -16,6 +16,8 @@
 <script src="${actionjs}"></script>
 <c:url value='js/client.js' var="clientjs"/>
 <script src="${clientjs}"></script>
+<c:url value='js/historique.js' var="historiquejs"/>
+<script src="${historiquejs}"></script>
 <c:url value='js/ajouterClient.js' var="ajouterClient"/>
 <script src="${ajouterClient}"></script>
 
