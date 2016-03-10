@@ -62,15 +62,17 @@ function generationListeDeroulanteEtat() {
 function generationTableauActions() {
 
 	var tableHTML = "";
+	var listeCli = new ListeClients(listeDesClients);
 	if (listeActionsClients != null) {
 		for (var i = 0; i < listeActionsClients.length; i++) {
 
 			tableHTML += "<tr><td>"
-						+ listeActionsClients[i].titre
-						+ "</td><td>" + listeActionsClients[i].client
-						+ "</td><td>"+ listeActionsClients[i].etat
-						+"</td></tr>";
-			
+					+ listeActionsClients[i].titre
+					+ "</td><td>"
+					+ listeCli.getNom(listeCli.tableauClients,
+							listeActionsClients[i].client) + "</td><td>"
+					+ tableauEtat[listeActionsClients[i].etat] + "</td></tr>";
+					console.log(tableHTML);
 		}
 		$("#contenuTableau").html(tableHTML);
 	}

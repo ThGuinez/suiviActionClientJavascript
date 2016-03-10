@@ -4,10 +4,10 @@ $(function(){
 	
 	function enregisterAction(){
 		var titre = $("#titre").val();
-		var client = $("select[name='client']").val();
-		var etat = $("select[name='etat']").val();
+		var client = $("select[id='listeDeroulanteClients']").val();
+		var etat = $("select[id='listeDeroulanteEtat']").val();
 		var id = nouvelIdAction();
-		var action = new Action(id,titre,client,etat);
+		var action = new Action(id,titre,etat,client);
 		var listeAct = new ListeActions(listeActionsClients);
 		listeAct.ajouter(listeAct.tableauActions,action);
 		localStorage.listeActions = JSON.stringify(listeAct.tableauActions);

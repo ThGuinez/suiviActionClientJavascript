@@ -15,13 +15,13 @@
 							class="form-control" id="titre">
 					</div>
 					<div class="form-group">
-						<label for="client">Client :</label>
-						 <select id="listeDeroulanteClients" name="client">
+						<label for="listeDeroulanteClients">Client :</label>
+						 <select id="listeDeroulanteClients">
 						</select>	
 					</div>										
 					<div class="form-group">
-						<label for="etat">Etat :</label> 
-						<select id="listeDeroulanteEtat" name="etat">
+						<label for="listeDeroulanteEtat">Etat :</label> 
+						<select id="listeDeroulanteEtat">
 						</select>		
 					</div>
 					<button id="enregistrerNouvelleAction" type="submit"

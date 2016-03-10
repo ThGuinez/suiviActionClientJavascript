@@ -2,13 +2,13 @@ function Client(id,nom,mel){
 	this.id = id;
 	this.nom = nom;
 	this.mel = mel;
-	this.getNom = getNomClient;
 }
 
 function ListeClients(listeClients){
 	this.tableauClients = listeClients;
 	this.ajouter = ajouterClient;
 	this.supprimer = supprimerClient;
+	this.getNom = getNomClient;
 }
 
 function ajouterClient(tableauClients,client){
