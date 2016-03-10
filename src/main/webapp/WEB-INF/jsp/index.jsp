@@ -34,7 +34,11 @@
 	</div>
 	<!--  form ajoutAction -->
 	<%@ include file="includes/ajoutAction.jsp"%>
-
+	<!--  bouton suppression action -->
+	<div class="boutton">
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModalSuppressionAction">Suppression action</button>
+	</div>
 	<!--  suppresionAction -->
 	<%@ include file="includes/suppresionAction.jsp"%>
 

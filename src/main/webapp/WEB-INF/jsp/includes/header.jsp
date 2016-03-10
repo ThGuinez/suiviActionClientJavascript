@@ -24,6 +24,8 @@
 <script src="${ajouterAction}"></script>
 <c:url value='js/historiqueEtat.js' var="historiqueEtat"/>
 <script src="${historiqueEtat}"></script>
+<c:url value='js/suppressionAction.js' var="suppressionAction"/>
+<script src="${suppressionAction}"></script>
 
 <!-- Bootstrap -->
 <c:url value='/outils/bootstrap/css/bootstrap.min.css' var="bootstrapCssUrl"/>
