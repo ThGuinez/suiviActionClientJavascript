@@ -1,10 +1,5 @@
-<div class="boutton">
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal">Nouveau Client</button>
-</div>
-
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModalClient" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -14,27 +9,18 @@
 				<h4 class="modal-title">Ajouter un nouveau client</h4>
 			</div>
 			<div class="modal-body">
-				<form>
-					<p>
-						<button type="button meslabels" class="btn btn-default"
-							aria-label="Left Align">
-							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							<label for="nom">Nom et prénom</label>
-						</button>
-						<input id="nom" type="text" value="" />
-					</p>
-					<p>	
-						<button type="button meslabels" class="btn btn-default"
-							aria-label="Left Align">
-							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-							<label for="mel">Adresse de messagerie</label>
-						</button>
-						<input id="mel" type="mail" value="" />
-					</p>
+				<form role="form">
+					<div class="form-group">
+						<label for="nom">Nom :</label> <input type="text"
+							class="form-control" id="nom">
+					</div>
+					<div class="form-group">
+						<label for="mel">Adresse de messagerie :</label> <input
+							type="email" class="form-control" id="mel">
+					</div>
+					<button id="enregistrerNouveauClient" type="submit"
+						class="btn btn-default" data-dismiss="modal">Enregistrer</button>
 				</form>
-			</div>
-			<div class="modal-footer">
-				<button id="enregistrerNouveauClient" type="button" class="btn btn-default" data-dismiss="modal">Enregistrer</button>
 			</div>
 		</div>
 	</div>
