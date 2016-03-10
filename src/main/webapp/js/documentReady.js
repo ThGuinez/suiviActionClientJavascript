@@ -13,6 +13,8 @@ $( document ).ready(function() {
 	
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
+	generationListeDeroulanteEtat(listeDesClients);
+	
 });
 
 
@@ -32,11 +34,11 @@ function recuperationLocalStorage(){
 		listeActionsClients = JSON.parse(localStorage.getItem('listeActions'));
 	}
 	// historique
-	if(JSON.parse(localStorage.getItem('hisroriqueEtats'))==undefined ){
+	if(JSON.parse(localStorage.getItem('historiqueEtats'))==undefined ){
 		listeHistoriqueEtat = new Array();
 	}
 	else{
-		listeHistoriqueEtat = JSON.parse(localStorage.getItem('hisroriqueEtats'));
+		listeHistoriqueEtat = JSON.parse(localStorage.getItem('historiqueEtats'));
 	}
 }
 
@@ -47,4 +49,13 @@ function generationListeDeroulanteClientFormAction(listeDesClients){
 	}
 	//alert(codeHTML);
 	$("#listeDeroulanteClients").html(codeHTML);
+}
+
+function generationListeDeroulanteEtat(){
+	var codeHTML ="";
+	for(var i=0;i<tableauEtat.length;i++){
+		codeHTML += '<option value="'+i+'">'+tableauEtat[i]+'</option>';
+	}
+	//alert(codeHTML);
+	$("#listeDeroulanteEtat").html(codeHTML);
 }

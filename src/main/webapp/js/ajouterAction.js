@@ -4,8 +4,8 @@ $(function(){
 	
 	function enregisterAction(){
 		var titre = $("#titre").val();
-		var client = $("#client").val();
-		var etat = $("#etat").val();
+		var client = $("select[name='client'] > option").attr('value');
+		var etat = $("select[name='etat'] > option").attr('value' );
 		var id = nouvelIdAction();
 		var action = new Action(id,titre,client,etat);
 		var listeAct = new ListeActions(listeActionsClients);

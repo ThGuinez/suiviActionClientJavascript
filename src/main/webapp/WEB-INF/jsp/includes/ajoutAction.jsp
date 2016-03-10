@@ -21,16 +21,7 @@
 					</div>										
 					<div class="form-group">
 						<label for="etat">Etat :</label> 
-						<select name="etat">
-						  <option value="1">Début projet</option>
-						  <option value="2">En cours</option>
-						  <option value="3">Devis envoyé</option>
-						  <option value="4">Devis accepté et signé</option>
-						  <option value="5">Réalisé</option>
-						  <option value="6">Fini</option>
-						  <option value="7">Fin projet</option>
-						  <option value="8">Litige</option>
-						  <option value="9">Abandonné</option>
+						<select id="listeDeroulanteEtat" name="etat">
 						</select>		
 					</div>
 					<button id="enregistrerNouvelleAction" type="submit"
