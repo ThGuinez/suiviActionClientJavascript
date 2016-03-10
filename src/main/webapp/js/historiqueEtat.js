@@ -1,11 +1,36 @@
-function generationTableauHistoriqueEtat(id) {
-	var tableHTML = "";
-	for (var i = 0; i < listeHistoriqueEtat.length; i++) {
-		if (id == listeHistoriqueEtat[i].ref) {
-			tableHTML += "<tr><td>"+tableauEtat[listeHistoriqueEtat[i].etat]+"</td><td>"+listeHistoriqueEtat[i].etat+"</td></tr>"
-		}
-	}
-	$("#afficherEtat").html(tableHTML);
-}
+$(function() {
 
-$("#afficherHistoriqueDesChangementsEtat").click(generationTableauHistoriqueEtat(1));
+	function generationTableauHistoriqueEtat(id) {
+
+		tableauEtat = new Array();
+		tableauEtat[0] = "Début projet";
+		tableauEtat[1] = "En cours";
+		tableauEtat[2] = "Devis envoyé";
+		tableauEtat[3] = "Devis accepté et signé";
+		tableauEtat[4] = "Réalisé";
+		tableauEtat[5] = "Fini";
+		tableauEtat[6] = "Fin projet";
+		tableauEtat[7] = "Litige";
+		tableauEtat[8] = "Abandonné";
+		var tableHTML = "";
+		tableHTML += "<thead><tr><th>Etat</th><th>Date</th></tr></thead><tbody>";
+		listeHistoriqueEtat = JSON.parse(localStorage
+				.getItem('historiqueEtats'));
+		for (var i = 0; i < listeHistoriqueEtat.length; i++) {
+
+			if (id == listeHistoriqueEtat[i].ref) {
+				tableHTML += "<tr><td>"
+						+ tableauEtat[listeHistoriqueEtat[i].etat]
+						+ "</td><td>" + listeHistoriqueEtat[i].date
+						+ "</td></tr>"
+			}
+		}
+		tableHTML += "</tbody>";
+		console.log(tableHTML);
+		$("#afficherHistoEtat").html(tableHTML);
+	}
+
+	$("#afficherHistoriqueDesChangementsEtat").click(
+			generationTableauHistoriqueEtat(1));
+
+});

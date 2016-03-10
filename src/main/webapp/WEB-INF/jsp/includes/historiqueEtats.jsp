@@ -13,16 +13,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="responsive-table-line" style="margin:0px auto;max-width:700px;">
-					<table class="table table-bordered table-condensed table-body-center" >
-						<thead>
-							<tr>
-								<th>Etat</th>
-								<th>Date</th>
-							</tr>
-						</thead>
-						<tbody id="afficherEtat">
-							
-						</tbody>
+					<table id="afficherHistoEtat" class="table table-bordered table-condensed table-body-center" >
 					</table>
 				</div>
 				<hr/>	

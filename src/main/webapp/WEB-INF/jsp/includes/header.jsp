@@ -22,6 +22,8 @@
 <script src="${ajouterClient}"></script>
 <c:url value='js/ajouterAction.js' var="ajouterAction"/>
 <script src="${ajouterAction}"></script>
+<c:url value='js/historiqueEtat.js' var="historiqueEtat"/>
+<script src="${historiqueEtat}"></script>
 
 <!-- Bootstrap -->
 <c:url value='/outils/bootstrap/css/bootstrap.min.css' var="bootstrapCssUrl"/>

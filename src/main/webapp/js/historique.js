@@ -23,30 +23,29 @@ function ajouterHistorique(tableauHistorique,changementEtat){
 
 
 
+/*
+var historique1 = new Historique(1,"12/12/13",2);
+var historique2 = new Historique(1,"12/12/14",3);
+var historique3 = new Historique(1,"12/12/15",4);
+var historique4 = new Historique(1,"12/02/15",5);
+var historique5 = new Historique(2,"22/12/12",1);
+var historique6 = new Historique(2,"12/12/12",2);
+var historique7 = new Historique(2,"12/12/12",3);
+var historique8 = new Historique(2,"12/12/12",4);
 
-//var historique1 = new Historique(1,"12/12/13",2);
-//var historique2 = new Historique(1,"12/12/14",3);
-//var historique3 = new Historique(1,"12/12/15",4);
-//var historique4 = new Historique(1,"12/02/15",5);
-//var historique5 = new Historique(2,"22/12/12",1);
-//var historique6 = new Historique(2,"12/12/12",2);
-//var historique7 = new Historique(2,"12/12/12",3);
-//var historique8 = new Historique(2,"12/12/12",4);
-//
-//var listeHisto = new ListeHistoriqueEtat(listeHistoriqueEtat);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique0);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique1);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique2);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique3);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique4);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique5);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique6);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique7);
-//listeHisto.ajouter(listeHisto.tableauHistorique, historique8);
-//
-//localStorage.historiqueEtats= JSON.stringify(listeHisto.tableauHistorique);
+var listeHisto = new ListeHistoriqueEtat(listeHistoriqueEtat);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique1);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique2);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique3);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique4);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique5);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique6);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique7);
+listeHisto.ajouter(listeHisto.tableauHistorique, historique8);
 
+localStorage.historiqueEtats= JSON.stringify(listeHisto.tableauHistorique);
 
+*/
 
 
 
