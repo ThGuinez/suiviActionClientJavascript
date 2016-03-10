@@ -12,14 +12,14 @@
 				<form role="form">
 					<div class="form-group">
 						<label for="nom">Nom :</label> <input type="text"
-							class="form-control" id="nom">
+							class="form-control" id="nom" name= "nom" value="">
 					</div>
 					<div class="form-group">
 						<label for="mel">Adresse de messagerie :</label> <input
-							type="email" class="form-control" id="mel">
+							type="email" class="form-control" id="mel" name="id" value="">
 					</div>
-					<button id="enregistrerNouveauClient" type="submit"
-						class="btn btn-default" data-dismiss="modal">Enregistrer</button>
+					<button id="randomClient" type="button" class="btn btn-default">générer client aléatoire</button>
+					<button id="enregistrerNouveauClient" type="submit" class="btn btn-default" data-dismiss="modal">Enregistrer</button>
 				</form>
 			</div>
 		</div>

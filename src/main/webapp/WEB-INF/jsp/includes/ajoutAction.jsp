@@ -15,13 +15,8 @@
 							class="form-control" id="titre">
 					</div>
 					<div class="form-group">
-						<label for="client">Client :</label> <input type="text"
-							class="form-control" id="client">
-					</div>	
-					<div class="form-group">
 						<label for="client">Client :</label>
-						 <select name="client">
-							<div id="listeDeroulanteClients"></div>
+						 <select id="listeDeroulanteClients" name="client">
 						</select>	
 					</div>										
 					<div class="form-group">
@@ -38,7 +33,7 @@
 						  <option value="9">Abandonné</option>
 						</select>		
 					</div>
-					<button id="enregistrerNouvelAction" type="submit"
+					<button id="enregistrerNouvelleAction" type="submit"
 						class="btn btn-default" data-dismiss="modal">Enregistrer</button>
 				</form>
 			</div>

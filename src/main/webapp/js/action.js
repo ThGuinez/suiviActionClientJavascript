@@ -1,11 +1,12 @@
-function Action(titre,etat,client){
+function Action(id,titre,etat,client){
+	this.id = id;
 	this.titre = titre;
 	this.etat = etat;	
 	this.client = client;
 }
 
 function ListeActions(listeActions){
-	this.tableauActions = listeActions;
+	this.tableauActions  = listeActions;
 	this.ajouter = ajouterAction;
 	this.supprimer = supprimerAction;
 }

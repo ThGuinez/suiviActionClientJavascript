@@ -20,6 +20,8 @@
 <script src="${historiquejs}"></script>
 <c:url value='js/ajouterClient.js' var="ajouterClient"/>
 <script src="${ajouterClient}"></script>
+<c:url value='js/ajouterAction.js' var="ajouterAction"/>
+<script src="${ajouterAction}"></script>
 
 <!-- Bootstrap -->
 <c:url value='/outils/bootstrap/css/bootstrap.min.css' var="bootstrapCssUrl"/>
