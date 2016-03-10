@@ -14,8 +14,15 @@ $(function() {
 		tableauEtat[8] = "Abandonné";
 		var tableHTML = "";
 		tableHTML += "<thead><tr><th>Etat</th><th>Date</th></tr></thead><tbody>";
-		listeHistoriqueEtat = JSON.parse(localStorage
-				.getItem('historiqueEtats'));
+		
+		if(JSON.parse(localStorage.getItem('historiqueEtats'))==undefined ){
+			listeHistoriqueEtat = new Array();
+		}
+		else{
+			listeHistoriqueEtat = JSON.parse(localStorage.getItem('historiqueEtats'));
+		}
+		
+		if(listeHistoriqueEtat!=null){
 		for (var i = 0; i < listeHistoriqueEtat.length; i++) {
 
 			if (id == listeHistoriqueEtat[i].ref) {
@@ -26,8 +33,8 @@ $(function() {
 			}
 		}
 		tableHTML += "</tbody>";
-		console.log(tableHTML);
 		$("#afficherHistoEtat").html(tableHTML);
+	}
 	}
 
 	$("#afficherHistoriqueDesChangementsEtat").click(

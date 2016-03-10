@@ -15,14 +15,6 @@ function ajouterHistorique(tableauHistorique,changementEtat){
 	tableauHistorique.push(changementEtat);
 }
 
-
-
-	
-
-
-
-
-
 /*
 var historique1 = new Historique(1,"12/12/13",2);
 var historique2 = new Historique(1,"12/12/14",3);

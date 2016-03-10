@@ -34,8 +34,10 @@ $(function() {
 			url : 'https://randomuser.me/api/',
 			dataType : 'json',
 			success : function(data) {
-				$("#nom").attr("value",data.results[0].user.name.last);
-				$("#mel").attr("value",data.results[0].user.email);
+				console.log(data.results[0].user.name.last);
+				console.log(data.results[0].user.email);
+				$("#nom").val(data.results[0].user.name.last);
+				$("#mel").val(data.results[0].user.email);
 			}
 		});
 
