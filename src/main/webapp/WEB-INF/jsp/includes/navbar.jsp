@@ -33,6 +33,13 @@
 	<!-------------- ACCUEIL ----------->
 					<c:url value="/index" var="indexUrl"/>
 					<li><a href="${indexUrl}">ACCUEIL <span class="sr-only"></span></a></li>
+	<!-------------- AJOUT CLIENT ----------->
+	
+					<li ><a href="#myModalClient" data-toggle="modal" data-target="#myModalClient">NOUVEAU CLIENT <span class="sr-only"></span></a></li>
+	
+	<!-------------- AJOUT ACTION ----------->
+	
+					<li ><a href="#myModalAction" data-toggle="modal" data-target="#myModalAction">NOUVELLE ACTION<span class="sr-only"></span></a></li>
 	
 	<!-------------- LOGOUT ------------->
          		
