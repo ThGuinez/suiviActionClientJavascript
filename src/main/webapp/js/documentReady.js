@@ -1,7 +1,7 @@
-$( document ).ready(function() {
-	
+$(document).ready(function() {
+
 	tableauEtat = new Array();
-	tableauEtat[0] ="Début projet";
+	tableauEtat[0] = "Début projet";
 	tableauEtat[1] = "En cours";
 	tableauEtat[2] = "Devis envoyé";
 	tableauEtat[3] = "Devis accepté et signé";
@@ -10,52 +10,68 @@ $( document ).ready(function() {
 	tableauEtat[6] = "Fin projet";
 	tableauEtat[7] = "Litige";
 	tableauEtat[8] = "Abandonné";
-	
+
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
-	
+	generationTableauActions()
+
 });
 
-
-function recuperationLocalStorage(){
+function recuperationLocalStorage() {
 	// clients
-	if(JSON.parse(localStorage.getItem('listeClients'))==undefined){
+	if (JSON.parse(localStorage.getItem('listeClients')) == undefined) {
 		listeDesClients = new Array();
-	}
-	else{
+	} else {
 		listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
 	}
 	// actions
-	if(JSON.parse(localStorage.getItem('listeActions'))==undefined ){
+	if (JSON.parse(localStorage.getItem('listeActions')) == undefined) {
 		listeActionsClients = new Array();
-	}
-	else{
+	} else {
 		listeActionsClients = JSON.parse(localStorage.getItem('listeActions'));
 	}
 	// historique
-	if(JSON.parse(localStorage.getItem('historiqueEtats'))==undefined ){
+	if (JSON.parse(localStorage.getItem('historiqueEtats')) == undefined) {
 		listeHistoriqueEtat = new Array();
-	}
-	else{
-		listeHistoriqueEtat = JSON.parse(localStorage.getItem('historiqueEtats'));
+	} else {
+		listeHistoriqueEtat = JSON.parse(localStorage
+				.getItem('historiqueEtats'));
 	}
 }
 
-function generationListeDeroulanteClientFormAction(listeDesClients){
-	var codeHTML ="";
-	for(var i=0;i<listeDesClients.length;i++){
-		codeHTML += '<option value="'+listeDesClients[i].id+'">'+listeDesClients[i].nom+'</option>';
+function generationListeDeroulanteClientFormAction(listeDesClients) {
+	var codeHTML = "";
+	for (var i = 0; i < listeDesClients.length; i++) {
+		codeHTML += '<option value="' + listeDesClients[i].id + '">'
+				+ listeDesClients[i].nom + '</option>';
 	}
-	//alert(codeHTML);
+	// alert(codeHTML);
 	$("#listeDeroulanteClients").html(codeHTML);
 }
 
-function generationListeDeroulanteEtat(){
-	var codeHTML ="";
-	for(var i=0;i<tableauEtat.length;i++){
-		codeHTML += '<option value="'+i+'">'+tableauEtat[i]+'</option>';
+function generationListeDeroulanteEtat() {
+	var codeHTML = "";
+	for (var i = 0; i < tableauEtat.length; i++) {
+		codeHTML += '<option value="' + i + '">' + tableauEtat[i] + '</option>';
 	}
-	//alert(codeHTML);
+	// alert(codeHTML);
 	$("#listeDeroulanteEtat").html(codeHTML);
+}
+
+function generationTableauActions() {
+
+	var tableHTML = "";
+	if (listeActionsClients != null) {
+		for (var i = 0; i < listeActionsClients.length; i++) {
+
+			tableHTML += "<tr><td>"
+						+ listeActionsClients[i].titre
+						+ "</td><td>" + listeActionsClients[i].client
+						+ "</td><td>"+ listeActionsClients[i].etat
+						+"</td></tr>";
+			
+		}
+		$("#contenuTableau").html(tableHTML);
+	}
 }

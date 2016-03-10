@@ -2,6 +2,7 @@ function Client(id,nom,mel){
 	this.id = id;
 	this.nom = nom;
 	this.mel = mel;
+	this.getNom = getNomClient;
 }
 
 function ListeClients(listeClients){
@@ -17,6 +18,16 @@ function ajouterClient(tableauClients,client){
 function supprimerClient(tableauClients,client){
 	var index = tableauClients.indexOf(client);
 	tableauClients.splice(index,1);
+}
+
+function getNomClient(tableauClients,id){
+	var nom;
+	var id;
+	for(i=0;i<tableauClients.length;i++){
+		if(tableauClients[i].id==id){
+			return tableauClients[i].nom;
+		}
+	}
 }
 
 //jeu d'essai
