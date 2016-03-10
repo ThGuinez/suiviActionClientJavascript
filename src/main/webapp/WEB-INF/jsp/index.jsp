@@ -23,11 +23,7 @@
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
 			data-target="#myModalClient">Nouveau Client</button>
 	</div>
-	<!--  bouton Historique -->
-	<div class="boutton">
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-			data-target="#myModalHistoriqueEtat">Historique des Etats</button>
-	</div>
+
 	<!-- form ajoutClient -->
 	<%@ include file="includes/ajoutClient.jsp"%>
 
@@ -42,6 +38,11 @@
 	<!--  suppresionAction -->
 	<%@ include file="includes/suppresionAction.jsp"%>
 
+	<!--  bouton Historique -->
+	<div class="boutton">
+		<button id="afficherHistoriqueDesChangementsEtat" type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModalHistoriqueEtat">Historique des Etats</button>
+	</div>
 	<!--  historiqueEtats -->
 	<%@ include file="includes/historiqueEtats.jsp"%>
 
