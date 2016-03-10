@@ -17,7 +17,13 @@
 					<div class="form-group">
 						<label for="client">Client :</label> <input type="text"
 							class="form-control" id="client">
-					</div>					
+					</div>	
+					<div class="form-group">
+						<label for="client">Client :</label>
+						 <select name="client">
+							<div id="listeDeroulanteClients"></div>
+						</select>	
+					</div>										
 					<div class="form-group">
 						<label for="etat">Etat :</label> 
 						<select name="etat">

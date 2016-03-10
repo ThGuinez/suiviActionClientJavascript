@@ -1,4 +1,5 @@
-function Client(nom,mel){
+function Client(id,nom,mel){
+	this.id = id;
 	this.nom = nom;
 	this.mel = mel;
 }

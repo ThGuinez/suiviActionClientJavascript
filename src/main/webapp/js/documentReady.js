@@ -1,9 +1,10 @@
 $( document ).ready(function() {
-	recuiperationLocalStorage()
+	recuperationLocalStorage();
+	generationListeDeroulanteClientFormAction(listeDesClients);
 });
 
 
-function recuiperationLocalStorage(){
+function recuperationLocalStorage(){
 	if(JSON.parse(localStorage.getItem('listeClients'))==undefined){
 		listeDesClients = new Array();
 	}
@@ -24,4 +25,12 @@ function recuiperationLocalStorage(){
 	else{
 		listeHistoriqueEtat = JSON.parse(localStorage.getItem('hisroriqueEtats'));
 	}
+}
+
+function generationListeDeroulanteClientFormAction(listeDesClients){
+	var codeHTML;
+	for(var i=0;i<listeDesClients.length;i++){
+		codeHTML += '<option value="'+listeDesClients[i].id+'">'+listeDesClients[i].nom+'</option>';
+	}
+	$("#listeDeroulanteClients").html(codeHTML);
 }
