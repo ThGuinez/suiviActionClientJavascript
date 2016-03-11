@@ -16,7 +16,7 @@ $(document).ready(function() {
 	generationListeDeroulanteEtat(listeDesClients);
 	generationTableauActions()
 	detectClicHisto();
-
+	detectClicChang
 	
 });
 
