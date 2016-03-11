@@ -21,6 +21,7 @@ $(function(){
 		recuperationLocalStorage();
 		$("#titre").val("");
 		generationTableauActions();
+		detectClicSupp();
 	};
 	
 	function nouvelIdAction(){

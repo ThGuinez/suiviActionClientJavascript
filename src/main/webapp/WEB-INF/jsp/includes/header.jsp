@@ -15,6 +15,8 @@
 <c:url value='js/action.js' var="actionjs"/>
 <script src="${actionjs}"></script>
 <c:url value='js/client.js' var="clientjs"/>
+<c:url value='js/supprimerAction.js' var="supprimerAction"/>
+<script src="${supprimerAction}"></script>
 <script src="${clientjs}"></script>
 <c:url value='js/historique.js' var="historiquejs"/>
 <script src="${historiquejs}"></script>
@@ -24,8 +26,7 @@
 <script src="${ajouterAction}"></script>
 <c:url value='js/historiqueEtat.js' var="historiqueEtat"/>
 <script src="${historiqueEtat}"></script>
-<c:url value='js/supprimerAction.js' var="supprimerAction"/>
-<script src="${supprimerAction}"></script>
+
 
 <!-- Bootstrap -->
 <c:url value='/outils/bootstrap/css/bootstrap.min.css' var="bootstrapCssUrl"/>

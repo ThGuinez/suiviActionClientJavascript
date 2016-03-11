@@ -1,15 +1,6 @@
 $(function() {
 
 	var actionid;
-	
-	
-	function detectClicSupp(){
-		$(".boutSuppression").click(function() {
-			actionid = $(this).parent("td").parent("tr").attr('actionid');
-			//alert(actionid);
-		});
-	}
-	
 	detectClicSupp();
 
 	function supprimerAction(id) {
@@ -40,33 +31,18 @@ $(function() {
 			i = i + 1;
 		}
 	}
+	
+	function detectClicSupp(){
+		$(".boutSuppression").click(function() {
+			actionid = $(this).parent("td").parent("tr").attr('actionid');
+			//alert(actionid);
+		});
+		$("#validerSuppressionAction").click(function(){
+			//alert(actionid);
+			supprimerAction(actionid);
+		});
+	}
+	
 
-	
-	$("#validerSuppressionAction").click(function(){
-		//alert(actionid);
-		supprimerAction(actionid);
-	});
-	
+
 });
-
-// function supprimerAction(tableauActions,action){
-// var index = tableauActions.indexOf(action);
-// tableauActions.splice(index,1);
-//	
-// }
-//
-// function Action(id,titre,etat,client){
-// this.ref = ref;
-// this.date = date;
-// this.etat = etat;
-// }
-//
-//
-// function ListeHistoriqueEtat(historique){
-// this.tableauHistorique = historique;
-// this.ajouter = ajouterHistorique;
-// }
-//
-// function ajouterHistorique(tableauHistorique,changementEtat){
-// tableauHistorique.push(changementEtat);
-// }

@@ -59,6 +59,24 @@ function generationListeDeroulanteEtat() {
 	$("#listeDeroulanteEtat").html(codeHTML);
 }
 
+function generationListeDeroulanteEtatAvecSelected(etat) {
+	var codeHTMLB = "";
+	var stringSelected ="";
+	codeHTMLB += '<select id="listeEtatTableau">';
+
+	for (var z = 0; z < tableauEtat.length; z++) {
+		if(z==etat){
+			stringSelected = " selected ";
+		}
+		codeHTMLB += '<option value="' + z +'"'+stringSelected+'>' + tableauEtat[z] + '</option>';
+		stringSelected ="";
+	}
+	codeHTMLB += '</select>';
+	// alert(codeHTML);
+	return codeHTMLB;
+}
+
+
 function generationTableauActions() {
 
 	recuperationLocalStorage();
@@ -72,7 +90,9 @@ function generationTableauActions() {
 					+ '</td><td>'
 					+ listeCli.getNom(listeCli.tableauClients,
 							listeActionsClients[i].client) + '</td><td>'
-					+ tableauEtat[listeActionsClients[i].etat] + '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
+					//+ tableauEtat[listeActionsClients[i].etat]
+					+ generationListeDeroulanteEtatAvecSelected(listeActionsClients[i].etat)
+					+ '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
 					+'<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
 		}
 		$("#contenuTableau").html(tableHTML);
