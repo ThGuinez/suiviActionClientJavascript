@@ -10,11 +10,11 @@ $(document).ready(function() {
 	tableauEtat[6] = "Fin projet";
 	tableauEtat[7] = "Litige";
 	tableauEtat[8] = "Abandonné";
-
+	
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
-	generationTableauActions()
+	generationTableauActions();
 
 });
 
@@ -61,18 +61,19 @@ function generationListeDeroulanteEtat() {
 
 function generationTableauActions() {
 
+	recuperationLocalStorage();
 	var tableHTML = "";
 	var listeCli = new ListeClients(listeDesClients);
 	if (listeActionsClients != null) {
 		for (var i = 0; i < listeActionsClients.length; i++) {
 
-			tableHTML += "<tr><td>"
+			tableHTML += '<tr actionid='+listeActionsClients[i].id+'><td>'
 					+ listeActionsClients[i].titre
-					+ "</td><td>"
+					+ '</td><td>'
 					+ listeCli.getNom(listeCli.tableauClients,
-							listeActionsClients[i].client) + "</td><td>"
-					+ tableauEtat[listeActionsClients[i].etat] + "</td></tr>";
-					console.log(tableHTML);
+							listeActionsClients[i].client) + '</td><td>'
+					+ tableauEtat[listeActionsClients[i].etat] + '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
+					+'<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
 		}
 		$("#contenuTableau").html(tableHTML);
 	}

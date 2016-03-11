@@ -20,6 +20,7 @@ $(function(){
 		localStorage.historiqueEtats= JSON.stringify(listeHisto.tableauHistorique);
 		recuperationLocalStorage();
 		$("#titre").val("");
+		generationTableauActions();
 	};
 	
 	function nouvelIdAction(){

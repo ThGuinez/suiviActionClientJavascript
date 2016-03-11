@@ -1,51 +1,48 @@
 body {
-	
-		font-family: 'Arial';
-		background-color:#F0FFFF;
-
+	font-family: 'Arial';
+	background-color: #F0FFFF;
+	font-family: 'Montserrat', sans-serif;
 }
-
-
-
 
 .jumbotron {
 	margin-top: -50px;
-	height:220px;
-	background-color: #00BFFF;
+	height: 220px;
+	background-color: #00A4DB;
 	text-shadow: 0px 0px 5px #000;
-	color: #ccc;
+	color: #fff;
 	-webkit-text-fill-color: white;
-    -webkit-text-stroke: 0.5px black;
+	-webkit-text-stroke: 0.5px black;
 	text-align: center;
+}
 
+@media ( max-width : 767px) {
+	.jumbotron {
+		height: 110px;
+		overflow: hidden;
+	}
 }
-@media (max-width: 767px) {
-  
-    .jumbotron{
-    height: 110px;
-    overflow:hidden;
-    }
-}
+
 .navbar {
-	
-	background-color:#CCCCCC;
+	background-color: #CCCCCC;
 	margin-top: -35px;
-	border-top : 1px solid #888;
+	border-top: 1px solid #888;
 	border-bottom: 1px solid #888;
-	
 }
+
+.navbar li:hover {
+	border:
+}
+
 
 .btnbase {
-	
-	background-color:#CCCCCC;
-	color:#9D9D9D;
-	
+	background-color: #CCCCCC;
+	color: #9D9D9D;
 }
 
 .bloc-search p {
 	padding-right: 10px;
-	color : #FFF;
-	font-size : 17px;
+	color: #FFF;
+	font-size: 17px;
 }
 
 .bloc-search input {
@@ -53,25 +50,7 @@ body {
 }
 
 .errormsg {
-	color:#ff0000;
-}
-
-
-.signature {
-	
-	background-color: #444;
-	overflow:hidden;
-	position: absolute;
-	bottom: -160px;
-	width: 100%;
-	color: #777;
-	text-align: center;
-	border-top: 1px solid #888;
-}
-
-table.monBootGrid {
-	background-color: white;
-	color:black;
+	color: #ff0000;
 }
 
 
@@ -81,8 +60,8 @@ div.fontEdit {
 }
 
 #case {
-	width : 200px;
-	display : inline-block;
+	width: 200px;
+	display: inline-block;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -90,187 +69,31 @@ div.fontEdit {
 	margin-left: 10px;
 }
 
-#case:hover,
-#case:focus {
+#case:hover, #case:focus {
 	border-color: rgb(104, 145, 162);
 	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #00BFFF;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #00BFFF;
-}
-
-.imie .push{
-height: 40px;
-}
-
-
-.sub-container-base-retard {
-	background-color:#555;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	-moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	-webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	min-width: 263px;
-
-}
-	
-	
-.lectureSeule {
-	background-color:#999;
-	color: #000;
-}
-
-.info {
-	background:#abd6ae;
-}
-
-.erreur {
-	background:#f87272;
-}
-
-.card-container,
-.fontEdit {
-
-	margin-bottom: 50px;
-	padding : 20px;
-	margin-top:20px;
-	margin-left:20px;
-	margin-right:20px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	-moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	-webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	min-width: 263px;
-}
-
-.infoFormulaire {
-	
-    display:inline-block;
-    float:none;
-    text-align:center;
-    margin-right:-4px;
-    padding-bottom: 25px;
-	
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 #00A4DB;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #00A4DB;
 }
 
 .row-centered {
-    text-align:center;
+	text-align: center;
 }
-
 
 /* ======================================================================
 =============================== FORMULAIRE ==============================
 =======================================================================*/
 
-.formLabel {
-    display:inline-block;
-    float:none;
-    text-align:left;
-    margin-right:-4px;
-    color : #fff;
-}
-
-.formInput {
-    display:inline-block;
-    float:none;
-    text-align:left;
-    margin-right:-4px;
-}
-
-.formContainer {
-    display:inline-block;
-    float:none;
-    /* reset the text-align */
-    text-align:left;
-    /* inline-block space fix */
-    margin-right:-4px;
-    margin-bottom: 50px;
-	padding : 0px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	-moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	-webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	min-width: 263px;
-	margin-top:20px;
-	padding: 20px;
-}
-
-.formIpunt checkbox,
-.formInput select,
-.formInput input {
-	
-	margin-top: 10px;
-	width : 200px;
-}
-
-.formLabel label {
-	
-	margin-top: 10px;
-	width : 150px;
-		
-
-}
-
-.formInput select,
-
-.formInput input {
-	
-	width:300px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	margin-left: -30px;
-	
-}
 
 
 
-checkbox:hover,
-select:hover,
-input:hover,
-input:focus {
-	border-color: rgb(104, 145, 162);
-	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 #00BFFF;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #00BFFF;
-}
-	
-.formulaireSubmit {
-	
-	margin-top:50px;
-}
 
-.formulaireSubmit input {
-	
-	width :150px;
-}
 
-.gridListBox {
-	
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	-moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	-webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 1.0);	
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-bottom: 5px;
-	
-	
-}
+
 /* ======================================================================
 =============================== MESSAGE ALERTE =========================
 =======================================================================*/
-
-.alert-warning,
-.alert-success {
-	
+.alert-warning, .alert-success {
 	-moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 1.0);
 	-webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 1.0);
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 1.0);
@@ -281,28 +104,25 @@ input:focus {
 /* ======================================================================
 =============================== bouttons d'actions =========================
 =======================================================================*/
-
-.boutton{
-	padding:1em;
+.boutton {
+	padding: 1em;
 }
 
 /* ======================================================================
 =============================== labels form  =========================
 =======================================================================*/
-
-.mesLabels{
-	width:100em;
+.mesLabels {
+	width: 100em;
 }
 
 /* ======================================================================
 =============================== tableau des actions  =========================
 =======================================================================*/
-
-.titre2{
-	text-align:center;
+.titre2 {
+	text-align: center;
 }
 
-.tableau{
-	margin:auto;
-	width:50%;
+.tableau {
+	margin: auto;
+	width: 50%;
 }
