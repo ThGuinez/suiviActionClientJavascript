@@ -12,7 +12,7 @@
 				<p>Etes-vous sûr de vouloir supprimer cette action?</p>
 				<hr/>	
 				<button id="fermerModal" type="submit" class="btn btn-default" data-dismiss="modal">Annuler</button>
-				<button id="validerSuppressionActionl" type="submit" class="btn btn-default" data-dismiss="modal">Valider</button>
+				<button id="validerSuppressionAction" type="submit" class="btn btn-default" onclick="afficheH();" data-dismiss="modal">Valider</button>
 			</div>
 		</div>
 	</div>

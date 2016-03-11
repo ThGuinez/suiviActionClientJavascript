@@ -1,15 +1,16 @@
-$("#supprimerActionClik").click(supprimerAction());
+$("#validerSuppressionAction").click(supprimerAction());
 
 function supprimerAction (id, titre) {
+	var tabActions = listeActionsClients;
 	
 	var i=0;
 	var dataDelete=false;
-	listeActionsClients.Action(id);
+	tabActions.Action(id);
 	while(dataDelete==false && i<listeActionsClients.length) {
-		if(listeActionsClients[i] == Action.id === id){
-			listeActionsClients.splice(i,1);
+		if(tabActions[i] == Action.id === id){
+			tabActions.splice(i,1);
 			dataDelete=true;
-			localStorage.setItem(actions, JSON.stringify(listeActionsClients));
+			localStorage.setItem(actions, JSON.stringify(ListeActions));
 		}
 		i=i+1;
 	}
