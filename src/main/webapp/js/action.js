@@ -16,23 +16,34 @@ function ajouterAction(tableauActions,action){
 }
 
 function supprimerAction(tableauActions,action){
-	var index = tableauActions.indexOf(action);
-	tableauActions.splice(index,1);
+	//console.log(tableauActions);
+	//console.log(action);
+	var tab = new Array();
+	for(var y=0;y<tableauActions.length;y++){
+		console.log(tableauActions[y].id);
+		if(action.id!=tableauActions[y].id){
+			tab.push(tableauActions[y]);
+		}
+	}
+	return tab;
 }
 
 // jeu d'essai
 
 /*
-var action1 = new Action("titre1","ok",1);
-var action2 = new Action("titre2","no",1);
-var action3 = new Action("titre3","?",1);
-var liste = new Array(action1,action2,action3);
+var action1 = new Action(1,"tes1",1,1);
+var action2 = new Action(2,"tes2",1,5);
+var action3 = new Action(3,"tes3",1,8);
+var action4 = new Action(4,"tes4",1,6);
+var action5 = new Action(5,"tes5",1,2);
+var liste = new Array(action1,action2,action3,action4,action5);
 var listeAct = new ListeActions(liste);
+localStorage.listeActions = JSON.stringify(listeAct.tableauActions);
 
 listeAct.ajouter(listeAct.tableauActions,action3);
 listeAct.supprimer(listeAct.tableauActions,action2);
 
-localStorage.listeActions = JSON.stringify(listeAct.tableauActions);
+
 
 tableauActions = JSON.parse(localStorage.getItem('listeActions'));
 */

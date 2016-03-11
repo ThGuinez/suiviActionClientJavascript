@@ -1,38 +1,72 @@
-$("#supprimerActionClik").click(supprimerAction());
+$(function() {
 
-function supprimerAction (id, titre) {
+	var actionid;
 	
-	var i=0;
-	var dataDelete=false;
-	listeActionsClients.Action(id);
-	while(dataDelete==false && i<listeActionsClients.length) {
-		if(listeActionsClients[i] == Action.id === id){
-			listeActionsClients.splice(i,1);
-			dataDelete=true;
-			localStorage.setItem(actions, JSON.stringify(listeActionsClients));
-		}
-		i=i+1;
+	
+	function detectClicSupp(){
+		$(".boutSuppression").click(function() {
+			actionid = $(this).parent("td").parent("tr").attr('actionid');
+			//alert(actionid);
+		});
 	}
-}
+	
+	detectClicSupp();
 
-//function supprimerAction(tableauActions,action){
-//	var index = tableauActions.indexOf(action);
-//	tableauActions.splice(index,1);
+	function supprimerAction(id) {
+
+		var i = 0;
+		var dataDelete = false;
+
+		if (JSON.parse(localStorage.getItem('listeActions')) == undefined) {
+			listeActionsClients = new Array();
+		} else {
+			listeActionsClients = JSON.parse(localStorage
+					.getItem('listeActions'));
+		}
+
+		
+		while (dataDelete == false && i < listeActionsClients.length) {
+			//alert("A");
+			if (listeActionsClients[i].id == id) {
+				//alert("B:"+listeActionsClients[i].id);
+				var listAc = new ListeActions(listeActionsClients);
+				listeActionsClients = listAc.supprimer(
+						listAc.tableauActions, listeActionsClients[i]);
+				localStorage.listeActions= JSON.stringify(listeActionsClients);
+				dataDelete = true;
+				generationTableauActions();	
+				detectClicSupp();
+			}
+			i = i + 1;
+		}
+	}
+
+	
+	$("#validerSuppressionAction").click(function(){
+		//alert(actionid);
+		supprimerAction(actionid);
+	});
+	
+});
+
+// function supprimerAction(tableauActions,action){
+// var index = tableauActions.indexOf(action);
+// tableauActions.splice(index,1);
 //	
-//	}
+// }
 //
-//function Action(id,titre,etat,client){
-//	this.ref = ref;
-//	this.date = date;	
-//	this.etat = etat;
-//}
+// function Action(id,titre,etat,client){
+// this.ref = ref;
+// this.date = date;
+// this.etat = etat;
+// }
 //
 //
-//function ListeHistoriqueEtat(historique){
-//	this.tableauHistorique = historique;
-//	this.ajouter = ajouterHistorique;
-//}
+// function ListeHistoriqueEtat(historique){
+// this.tableauHistorique = historique;
+// this.ajouter = ajouterHistorique;
+// }
 //
-//function ajouterHistorique(tableauHistorique,changementEtat){
-//	tableauHistorique.push(changementEtat);
-//}
+// function ajouterHistorique(tableauHistorique,changementEtat){
+// tableauHistorique.push(changementEtat);
+// }

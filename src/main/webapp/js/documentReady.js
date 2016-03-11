@@ -10,11 +10,11 @@ $(document).ready(function() {
 	tableauEtat[6] = "Fin projet";
 	tableauEtat[7] = "Litige";
 	tableauEtat[8] = "Abandonné";
-
+	
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
-	generationTableauActions()
+	generationTableauActions();
 
 });
 
@@ -61,6 +61,7 @@ function generationListeDeroulanteEtat() {
 
 function generationTableauActions() {
 
+	recuperationLocalStorage();
 	var tableHTML = "";
 	var listeCli = new ListeClients(listeDesClients);
 	if (listeActionsClients != null) {

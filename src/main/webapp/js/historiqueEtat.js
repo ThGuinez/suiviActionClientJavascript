@@ -37,9 +37,13 @@ $(function() {
 		}
 	}
 
-	$(".boutHistorique").click(function() {
-		actionid = $(this).parent("td").parent("tr").attr('actionid');
-		generationTableauHistoriqueEtat(actionid);
-	});
+	detectClicHisto();
+	
+	function detectClicHisto(){
+		$(".boutHistorique").click(function() {
+			actionid = $(this).parent("td").parent("tr").attr('actionid');
+			generationTableauHistoriqueEtat(actionid);
+		});
+	}
 
 });
