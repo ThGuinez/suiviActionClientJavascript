@@ -26,22 +26,12 @@
 
 	<!--  bouton suppression action -->
 	<div class="boutton">
-		<button type="button" class="btn btn-default btn-lg"
-			data-toggle="modal" data-target="#myModalSuppressionAction">
-			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-		</button>
+
 	</div>
 	<!--  suppresionAction -->
 	<%@ include file="includes/suppresionAction.jsp"%>
 
 
-	<!--  bouton Historique -->
-	<div class="boutton">
-		<button type="button" class="btn btn-default btn-lg"
-			data-toggle="modal" data-target="#myModalHistoriqueEtat">
-			<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-		</button>
-	</div>
 	<!--  historiqueEtats -->
 	<%@ include file="includes/historiqueEtats.jsp"%>
 
