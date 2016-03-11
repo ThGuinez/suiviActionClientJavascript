@@ -14,32 +14,30 @@ $(function() {
 		tableauEtat[8] = "Abandonné";
 		var tableHTML = "";
 		tableHTML += "<thead><tr><th>Etat</th><th>Date</th></tr></thead><tbody>";
-
-		if (JSON.parse(localStorage.getItem('historiqueEtats')) == undefined) {
+		
+		if(JSON.parse(localStorage.getItem('historiqueEtats'))==undefined ){
 			listeHistoriqueEtat = new Array();
-		} else {
-			listeHistoriqueEtat = JSON.parse(localStorage
-					.getItem('historiqueEtats'));
 		}
+		else{
+			listeHistoriqueEtat = JSON.parse(localStorage.getItem('historiqueEtats'));
+		}
+		
+		if(listeHistoriqueEtat!=null){
+		for (var i = 0; i < listeHistoriqueEtat.length; i++) {
 
-		if (listeHistoriqueEtat != null) {
-			for (var i = 0; i < listeHistoriqueEtat.length; i++) {
-
-				if (id == listeHistoriqueEtat[i].ref) {
-					tableHTML += "<tr><td>"
-							+ tableauEtat[listeHistoriqueEtat[i].etat]
-							+ "</td><td>" + listeHistoriqueEtat[i].date
-							+ "</td></tr>"
-				}
+			if (id == listeHistoriqueEtat[i].ref) {
+				tableHTML += "<tr><td>"
+						+ tableauEtat[listeHistoriqueEtat[i].etat]
+						+ "</td><td>" + listeHistoriqueEtat[i].date
+						+ "</td></tr>"
 			}
-			tableHTML += "</tbody>";
-			$("#afficherHistoEtat").html(tableHTML);
 		}
+		tableHTML += "</tbody>";
+		$("#afficherHistoEtat").html(tableHTML);
+	}
 	}
 
-	$(".boutHistorique").click(function() {
-		actionid = $(this).parent("td").parent("tr").attr('actionid');
-		generationTableauHistoriqueEtat(actionid);
-	});
+	$("#afficherHistoriqueDesChangementsEtat").click(
+			generationTableauHistoriqueEtat(1));
 
 });

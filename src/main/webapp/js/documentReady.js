@@ -66,13 +66,13 @@ function generationTableauActions() {
 	if (listeActionsClients != null) {
 		for (var i = 0; i < listeActionsClients.length; i++) {
 
-			tableHTML += '<tr actionid='+listeActionsClients[i].id+'><td>'
+			tableHTML += "<tr><td>"
 					+ listeActionsClients[i].titre
-					+ '</td><td>'
+					+ "</td><td>"
 					+ listeCli.getNom(listeCli.tableauClients,
-							listeActionsClients[i].client) + '</td><td>'
-					+ tableauEtat[listeActionsClients[i].etat] + '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
-					+'<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
+							listeActionsClients[i].client) + "</td><td>"
+					+ tableauEtat[listeActionsClients[i].etat] + "</td></tr>";
+					console.log(tableHTML);
 		}
 		$("#contenuTableau").html(tableHTML);
 	}
