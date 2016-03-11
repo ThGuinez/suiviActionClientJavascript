@@ -39,7 +39,7 @@
 	
 	<!-------------- AJOUT ACTION ----------->
 	
-					<li ><a href="#myModalAction" data-toggle="modal" data-target="#myModalAction">NOUVELLE ACTION<span class="sr-only"></span></a></li>
+					<li ><a id="navbarAction" href="#myModalAction" data-toggle="modal" data-target="#myModalAction">NOUVELLE ACTION<span class="sr-only"></span></a></li>
 	
 	<!-------------- LOGOUT ------------->
          		

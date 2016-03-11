@@ -14,30 +14,31 @@ $(document).ready(function() {
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
-	generationTableauActions();
+	generationTableauActions()
+	detectClicHisto();
 
+	
 });
 
 function recuperationLocalStorage() {
+	
+	if(localStorage.getItem("listeClients") == null){
+		localStorage.setItem("listeClients","[]");
+	}
+	if(localStorage.getItem("listeActions") == null){
+	localStorage.setItem("listeActions","[]");
+	}
+	if(localStorage.getItem("historiqueEtats") == null){
+	localStorage.setItem("historiqueEtats","[]");
+	}
+	
 	// clients
-	if (JSON.parse(localStorage.getItem('listeClients')) == undefined) {
-		listeDesClients = new Array();
-	} else {
 		listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
-	}
 	// actions
-	if (JSON.parse(localStorage.getItem('listeActions')) == undefined) {
-		listeActionsClients = new Array();
-	} else {
 		listeActionsClients = JSON.parse(localStorage.getItem('listeActions'));
-	}
 	// historique
-	if (JSON.parse(localStorage.getItem('historiqueEtats')) == undefined) {
-		listeHistoriqueEtat = new Array();
-	} else {
 		listeHistoriqueEtat = JSON.parse(localStorage
 				.getItem('historiqueEtats'));
-	}
 }
 
 function generationListeDeroulanteClientFormAction(listeDesClients) {
@@ -62,7 +63,7 @@ function generationListeDeroulanteEtat() {
 function generationListeDeroulanteEtatAvecSelected(etat) {
 	var codeHTMLB = "";
 	var stringSelected ="";
-	codeHTMLB += '<select id="listeEtatTableau">';
+	codeHTMLB += '<select class="listeEtatTableau">';
 
 	for (var z = 0; z < tableauEtat.length; z++) {
 		if(z==etat){
@@ -90,7 +91,7 @@ function generationTableauActions() {
 					+ '</td><td>'
 					+ listeCli.getNom(listeCli.tableauClients,
 							listeActionsClients[i].client) + '</td><td>'
-					//+ tableauEtat[listeActionsClients[i].etat]
+					// + tableauEtat[listeActionsClients[i].etat]
 					+ generationListeDeroulanteEtatAvecSelected(listeActionsClients[i].etat)
 					+ '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
 					+'<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';

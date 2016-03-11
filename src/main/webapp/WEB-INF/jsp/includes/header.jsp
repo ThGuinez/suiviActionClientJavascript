@@ -10,22 +10,35 @@
   <script src="${bootstrapJsUrl}"></script>
    
 <!-- scripts js -->
+
 <c:url value='js/documentReady.js' var="documentReady"/>
 <script src="${documentReady}"></script>
+
 <c:url value='js/action.js' var="actionjs"/>
 <script src="${actionjs}"></script>
+
 <c:url value='js/client.js' var="clientjs"/>
-<c:url value='js/supprimerAction.js' var="supprimerAction"/>
-<script src="${supprimerAction}"></script>
 <script src="${clientjs}"></script>
+
 <c:url value='js/historique.js' var="historiquejs"/>
 <script src="${historiquejs}"></script>
+
+<c:url value='js/supprimerAction.js' var="supprimerAction"/>
+<script src="${supprimerAction}"></script>
+
 <c:url value='js/ajouterClient.js' var="ajouterClient"/>
 <script src="${ajouterClient}"></script>
+
 <c:url value='js/ajouterAction.js' var="ajouterAction"/>
 <script src="${ajouterAction}"></script>
+
 <c:url value='js/historiqueEtat.js' var="historiqueEtat"/>
 <script src="${historiqueEtat}"></script>
+
+<c:url value='js/changementEtat.js' var="changementEtat"/>
+<script src="${changementEtat}"></script>
+
+
 
 
 <!-- Bootstrap -->

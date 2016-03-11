@@ -1,10 +1,23 @@
+var actionid;
+
+function detectClicSupp(){
+	
+	$(".boutSuppression").click(function() {
+		actionid = $(".boutSuppression").parent("td").parent("tr").attr('actionid');
+		//alert(actionid);
+	});
+
+}
+
 $(function() {
 
-	var actionid;
+	
 	detectClicSupp();
-
+	
 	function supprimerAction(id) {
 
+		//alert(id);
+		
 		var i = 0;
 		var dataDelete = false;
 
@@ -31,18 +44,15 @@ $(function() {
 			i = i + 1;
 		}
 	}
-	
-	function detectClicSupp(){
-		$(".boutSuppression").click(function() {
-			actionid = $(this).parent("td").parent("tr").attr('actionid');
-			//alert(actionid);
-		});
-		$("#validerSuppressionAction").click(function(){
-			//alert(actionid);
-			supprimerAction(actionid);
-		});
-	}
-	
 
 
+	
+	$("#validerSuppressionAction").click(function(){
+		//alert(actionid);
+		supprimerAction(actionid);
+	});
+	
 });
+
+
+

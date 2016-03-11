@@ -14,6 +14,7 @@ $(function() {
 		localStorage.listeClients = JSON.stringify(listeCli.tableauClients);
 		listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
 		generationListeDeroulanteClientFormAction(listeDesClients);
+		testnavbar();
 		$("#nom").val("");
 		$("#mel").val("");
 	}

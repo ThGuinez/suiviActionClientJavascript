@@ -9,24 +9,26 @@
 				<h4 class="modal-title">Ajouter une nouvelle action</h4>
 			</div>
 			<div class="modal-body">
-				<form role="form">
-					<div class="form-group">
-						<label for="nom">Titre :</label> <input type="text"
-							class="form-control" id="titre">
-					</div>
-					<div class="form-group">
-						<label for="listeDeroulanteClients">Client :</label>
-						 <select id="listeDeroulanteClients">
-						</select>	
-					</div>										
-					<div class="form-group">
-						<label for="listeDeroulanteEtat">Etat :</label> 
-						<select id="listeDeroulanteEtat">
-						</select>		
-					</div>
-					<button id="enregistrerNouvelleAction" type="submit"
-						class="btn btn-default" data-dismiss="modal">Enregistrer</button>
-				</form>
+				<div id="containerAjoutAction">
+					<form role="form">
+						<div class="form-group">
+							<label for="nom">Titre :</label> <input type="text"
+								class="form-control" id="titre">
+						</div>
+						<div class="form-group">
+							<label for="listeDeroulanteClients">Client :</label> <select
+								id="listeDeroulanteClients">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="listeDeroulanteEtat">Etat :</label> <select
+								id="listeDeroulanteEtat">
+							</select>
+						</div>
+						<button id="enregistrerNouvelleAction" type="submit"
+							class="btn btn-default" data-dismiss="modal">Enregistrer</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
