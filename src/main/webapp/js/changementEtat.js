@@ -4,8 +4,8 @@
 		$(".listeEtatTableau").change(function() {
 			actionident = $(this).parent("td").parent("tr").attr('actionid');
 			var val = $(".listeEtatTableau").val();
-			alert(actionident);
-			alert(val);
+			//alert(actionident);
+			//alert(val);
 			// on enregistre un objet historique
 			var date = new Date();
 			var stringDate=date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();

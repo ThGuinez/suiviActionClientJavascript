@@ -6,7 +6,7 @@
 	<head>
 		<%@ include file="includes/header.jsp" %>	    
 	    <!-- CUSTOM CSS ---->
-	    <c:url value='/css/login1.css' var="loginCssUrl"/>
+	    <c:url value='/css/login.css' var="loginCssUrl"/>
 		<link href="${loginCssUrl}" rel="stylesheet">			
 	</head>
 	
