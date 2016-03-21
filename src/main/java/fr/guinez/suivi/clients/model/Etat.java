@@ -1,4 +1,4 @@
-package model;
+package fr.guinez.suivi.clients.model;
 
 public class Etat {
 

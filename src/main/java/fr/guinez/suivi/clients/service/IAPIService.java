@@ -1,12 +1,12 @@
-package fr.guinez.suivi.client.dao;
+package fr.guinez.suivi.clients.service;
 
 import java.util.List;
 
-import model.Action;
-import model.Client;
-import model.Historique;
+import fr.guinez.suivi.clients.model.Action;
+import fr.guinez.suivi.clients.model.Client;
+import fr.guinez.suivi.clients.model.Historique;
 
-public interface IApiDao {
+public interface IAPIService {
 
 	void supprimerAction(Action action);
 
@@ -14,9 +14,9 @@ public interface IApiDao {
 
 	void ajouterClient(Client nouveauClient);
 
-	void ajouterHistorique(Historique nouvelHistorique);
-
 	void ajouterAction(Action nouvelleAction);
+
+	void ajouterHistorique(Historique nouvelHistorique);
 
 	List<Client> listerClients();
 

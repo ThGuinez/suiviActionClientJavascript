@@ -1,4 +1,4 @@
-package model;
+package fr.guinez.suivi.clients.model;
 
 import java.sql.Date;
 

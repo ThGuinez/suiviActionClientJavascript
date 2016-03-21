@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import fr.guinez.suivi.client.service.IAPIService;
-import model.Action;
-import model.Client;
-import model.Hello;
-import model.Historique;
+import fr.guinez.suivi.clients.model.Action;
+import fr.guinez.suivi.clients.model.Client;
+import fr.guinez.suivi.clients.model.Hello;
+import fr.guinez.suivi.clients.model.Historique;
+import fr.guinez.suivi.clients.service.IAPIService;
 
 @SuppressWarnings("unused")
 @Controller
