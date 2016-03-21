@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 	
+	@SuppressWarnings("unused")
 	private Logger logger = Logger.getLogger(IndexController.class);
 	
 	@RequestMapping({"/", "/index"})
