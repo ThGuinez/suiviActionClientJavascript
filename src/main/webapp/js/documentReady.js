@@ -10,92 +10,140 @@ $(document).ready(function() {
 	tableauEtat[6] = "Fin projet";
 	tableauEtat[7] = "Litige";
 	tableauEtat[8] = "Abandonné";
-	
+
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
 	generationTableauActions()
 	detectClicHisto();
 	detectClicChang
-	
+
 });
 
 function recuperationLocalStorage() {
-	
-	if(localStorage.getItem("listeClients") == null){
-		localStorage.setItem("listeClients","[]");
+
+	if (localStorage.getItem("listeClients") == null) {
+		localStorage.setItem("listeClients", "[]");
 	}
-	if(localStorage.getItem("listeActions") == null){
-	localStorage.setItem("listeActions","[]");
+	if (localStorage.getItem("listeActions") == null) {
+		localStorage.setItem("listeActions", "[]");
 	}
-	if(localStorage.getItem("historiqueEtats") == null){
-	localStorage.setItem("historiqueEtats","[]");
+	if (localStorage.getItem("historiqueEtats") == null) {
+		localStorage.setItem("historiqueEtats", "[]");
 	}
-	
+
 	// clients
-		listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
+	listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
 	// actions
-		listeActionsClients = JSON.parse(localStorage.getItem('listeActions'));
+	listeActionsClients = JSON.parse(localStorage.getItem('listeActions'));
 	// historique
-		listeHistoriqueEtat = JSON.parse(localStorage
-				.getItem('historiqueEtats'));
+	listeHistoriqueEtat = JSON.parse(localStorage.getItem('historiqueEtats'));
 }
 
 function generationListeDeroulanteClientFormAction(listeDesClients) {
-	var codeHTML = "";
-	for (var i = 0; i < listeDesClients.length; i++) {
-		codeHTML += '<option value="' + listeDesClients[i].id + '">'
-				+ listeDesClients[i].nom + '</option>';
-	}
-	// alert(codeHTML);
-	$("#listeDeroulanteClients").html(codeHTML);
+	$.ajax({
+		url : '/api/v1/clients',
+		type : 'GET',
+		dataType : 'json',
+		success : function(data) {
+			console.log(data);
+
+			var codeHTML = "";
+			for (var i = 0; i < data.length; i++) {
+				codeHTML += '<option value="' + data[i].id + '">' + data[i].nom
+						+ '</option>';
+			}
+			// alert(codeHTML);
+			$("#listeDeroulanteClients").html(codeHTML);
+
+		}
+	});
+
 }
 
 function generationListeDeroulanteEtat() {
-	var codeHTML = "";
-	for (var i = 0; i < tableauEtat.length; i++) {
-		codeHTML += '<option value="' + i + '">' + tableauEtat[i] + '</option>';
-	}
-	// alert(codeHTML);
-	$("#listeDeroulanteEtat").html(codeHTML);
+
+	$.ajax({
+		url : '/api/v1/etats',
+		type : 'GET',
+		dataType : 'json',
+		success : function(data) {
+
+			console.log(data);
+
+			var codeHTML = "";
+			for (var i = 0; i < data.length; i++) {
+				codeHTML += '<option value="' + i + '">' + data[i].libelle
+						+ '</option>';
+			}
+			$("#listeDeroulanteEtat").html(codeHTML);
+		}
+	});
+
 }
 
 function generationListeDeroulanteEtatAvecSelected(etat) {
-	var codeHTMLB = "";
-	var stringSelected ="";
-	codeHTMLB += '<select class="listeEtatTableau">';
+	
+	$.ajax({
+		url : '/api/v1/etats',
+		type : 'GET',
+		dataType : 'json',
+		success : function(data) {
 
-	for (var z = 0; z < tableauEtat.length; z++) {
-		if(z==etat){
-			stringSelected = " selected ";
+			console.log(data);
+
+			var codeHTMLB = "";
+			var stringSelected = "";
+			codeHTMLB += '<select class="listeEtatTableau">';
+
+			for (var z = 0; z < data.length; z++) {
+				if (z == etat) {
+					stringSelected = " selected ";
+				}
+				codeHTMLB += '<option value="' + z + '"' + stringSelected + '>'
+						+ data[z].libelle + '</option>';
+				stringSelected = "";
+			}
+			codeHTMLB += '</select>';
+			// alert(codeHTML);
+			return codeHTMLB;
 		}
-		codeHTMLB += '<option value="' + z +'"'+stringSelected+'>' + tableauEtat[z] + '</option>';
-		stringSelected ="";
-	}
-	codeHTMLB += '</select>';
-	// alert(codeHTML);
-	return codeHTMLB;
+	});
 }
-
 
 function generationTableauActions() {
 
-	recuperationLocalStorage();
-	var tableHTML = "";
-	var listeCli = new ListeClients(listeDesClients);
-	if (listeActionsClients != null) {
-		for (var i = 0; i < listeActionsClients.length; i++) {
+	$
+			.ajax({
+				url : '/api/v1/actions',
+				type : 'GET',
+				dataType : 'json',
+				success : function(data) {
 
-			tableHTML += '<tr actionid='+listeActionsClients[i].id+'><td>'
-					+ listeActionsClients[i].titre
-					+ '</td><td>'
-					+ listeCli.getNom(listeCli.tableauClients,
-							listeActionsClients[i].client) + '</td><td>'
-					// + tableauEtat[listeActionsClients[i].etat]
-					+ generationListeDeroulanteEtatAvecSelected(listeActionsClients[i].etat)
-					+ '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
-					+'<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
-		}
-		$("#contenuTableau").html(tableHTML);
-	}
+					console.log(data);
+
+					var tableHTML = "";
+					var listeCli = new ListeClients(listeDesClients);
+					if (data != null) {
+						for (var i = 0; i < data.length; i++) {
+
+							tableHTML += '<tr actionid='
+									+ data[i].id
+									+ '><td>'
+									+ data[i].titre
+									+ '</td><td>'
+									+ data[i].client.nom
+									+ '</td><td>'
+									// +
+									// tableauEtat[listeActionsClients[i].etat]
+									+ generationListeDeroulanteEtatAvecSelected(data[i].etat.id)
+									+ '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
+									+ '<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
+						}
+						$("#contenuTableau").html(tableHTML);
+					}
+
+				}
+			});
+
 }

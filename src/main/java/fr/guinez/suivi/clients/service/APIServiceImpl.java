@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import fr.guinez.suivi.clients.dao.IApiDao;
 import fr.guinez.suivi.clients.model.Action;
 import fr.guinez.suivi.clients.model.Client;
+import fr.guinez.suivi.clients.model.Etat;
 import fr.guinez.suivi.clients.model.Historique;
 
 @Service
@@ -17,14 +18,14 @@ public class APIServiceImpl implements IAPIService{
 	IApiDao APiDAO;
 
 	@Override
-	public List<Action> supprimerAction(Action action) {
-		return APiDAO.supprimerAction(action);
+	public List<Action> supprimerAction(int id) {
+		return APiDAO.supprimerAction(id);
 		
 	}
 
 	@Override
-	public void supprimerHistorique(Historique historique) {
-		APiDAO.supprimerHistorique(historique);
+	public void supprimerHistorique(int id) {
+		APiDAO.supprimerHistorique(id);
 		
 	}
 
@@ -51,9 +52,15 @@ public class APIServiceImpl implements IAPIService{
 	}
 
 	@Override
-	public List<Action> listerActions(Client client) {
-		List<Action> listeActions = APiDAO.listerActions(client);
+	public List<Action> listerActions() {
+		List<Action> listeActions = APiDAO.listerActions();
 		return listeActions;
+	}
+
+	@Override
+	public List<Etat> listerEtats() {
+		List<Etat> listeEtats = APiDAO.listerEtats();
+		return listeEtats;
 	}
 	
 }

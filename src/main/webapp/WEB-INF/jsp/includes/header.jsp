@@ -5,9 +5,7 @@
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <c:url value="/outils/bootstrap/js/bootstrap.min.js" var="bootstrapJsUrl"/>
-  <script src="${bootstrapJsUrl}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    
 <!-- scripts js -->
 
@@ -42,8 +40,7 @@
 
 
 <!-- Bootstrap -->
-<c:url value='/outils/bootstrap/css/bootstrap.min.css' var="bootstrapCssUrl"/>
-<link href="${bootstrapCssUrl}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <c:url value='/css/base.css' var="baseCssUrl"/>
 <link href="${baseCssUrl}" rel="stylesheet">
 

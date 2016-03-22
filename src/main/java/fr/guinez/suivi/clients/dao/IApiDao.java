@@ -4,13 +4,14 @@ import java.util.List;
 
 import fr.guinez.suivi.clients.model.Action;
 import fr.guinez.suivi.clients.model.Client;
+import fr.guinez.suivi.clients.model.Etat;
 import fr.guinez.suivi.clients.model.Historique;
 
 public interface IApiDao {
 
-	List<Action> supprimerAction(Action action);
+	List<Action> supprimerAction(int id);
 
-	void supprimerHistorique(Historique historique);
+	void supprimerHistorique(int id);
 
 	List<Client> ajouterClient(Client nouveauClient);
 
@@ -20,6 +21,8 @@ public interface IApiDao {
 
 	List<Client> listerClients();
 
-	List<Action> listerActions(Client client);
+	List<Action> listerActions();
+
+	List<Etat> listerEtats();
 
 }

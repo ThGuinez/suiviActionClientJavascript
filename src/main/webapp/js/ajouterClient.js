@@ -7,18 +7,24 @@ $(function() {
 	function enregisterClient() {
 		var nom = $("#nom").val();
 		var mel = $("#mel").val();
-		var id = nouvelIdClient();
-		var client = new Client(id, nom, mel);
-		var listeCli = new ListeClients(listeDesClients);
-		listeCli.ajouter(listeCli.tableauClients, client);
-		localStorage.listeClients = JSON.stringify(listeCli.tableauClients);
-		listeDesClients = JSON.parse(localStorage.getItem('listeClients'));
-		generationListeDeroulanteClientFormAction(listeDesClients);
-		testnavbar();
-		$("#nom").val("");
-		$("#mel").val("");
-	}
-	;
+		var client = new Client(0, nom, mel);
+		
+		console.log(client);
+		
+		$.ajax({
+			url : '/api/v1/clients',
+			type : 'POST',
+			data : JSON.stringify(client),
+			contentType: 'application/json',
+			dataType : 'json',
+			success : function(data) {
+				generationListeDeroulanteClientFormAction(listeDesClients);
+				testnavbar();
+				$("#nom").val("");
+				$("#mel").val("");
+			}
+		});
+	};
 
 	function nouvelIdClient() {
 		var nb = listeDesClients.length;

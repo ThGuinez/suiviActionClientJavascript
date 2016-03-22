@@ -17,6 +17,14 @@ public class Action {
 		this.etat = etat;
 		this.client = client;
 	}
+	
+	public Action(int id, String titre, Etat etat, Client client) {
+		super();
+		this.id = id;
+		this.titre = titre;
+		this.etat = etat;
+		this.client = client;
+	}
 
 	public int getId() {
 		return id;
