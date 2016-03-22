@@ -16,6 +16,13 @@ public class Client {
 		this.mel = mel;
 	}
 
+	public Client(int id, String nom, String mel) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.mel = mel;
+	}
+
 	public int getId() {
 		return id;
 	}

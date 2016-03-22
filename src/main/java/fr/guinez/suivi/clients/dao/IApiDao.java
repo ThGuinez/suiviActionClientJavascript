@@ -8,15 +8,15 @@ import fr.guinez.suivi.clients.model.Historique;
 
 public interface IApiDao {
 
-	void supprimerAction(Action action);
+	List<Action> supprimerAction(Action action);
 
 	void supprimerHistorique(Historique historique);
 
-	void ajouterClient(Client nouveauClient);
+	List<Client> ajouterClient(Client nouveauClient);
 
 	void ajouterHistorique(Historique nouvelHistorique);
 
-	void ajouterAction(Action nouvelleAction);
+	List<Action> ajouterAction(Action nouvelleAction);
 
 	List<Client> listerClients();
 

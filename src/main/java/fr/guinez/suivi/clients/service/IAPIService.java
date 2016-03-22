@@ -8,13 +8,13 @@ import fr.guinez.suivi.clients.model.Historique;
 
 public interface IAPIService {
 
-	void supprimerAction(Action action);
+	List<Action> supprimerAction(Action action);
 
 	void supprimerHistorique(Historique historique);
 
-	void ajouterClient(Client nouveauClient);
+	List<Client> ajouterClient(Client nouveauClient);
 
-	void ajouterAction(Action nouvelleAction);
+	List<Action> ajouterAction(Action nouvelleAction);
 
 	void ajouterHistorique(Historique nouvelHistorique);
 

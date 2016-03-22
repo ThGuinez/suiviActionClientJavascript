@@ -17,8 +17,8 @@ public class APIServiceImpl implements IAPIService{
 	IApiDao APiDAO;
 
 	@Override
-	public void supprimerAction(Action action) {
-		APiDAO.supprimerAction(action);
+	public List<Action> supprimerAction(Action action) {
+		return APiDAO.supprimerAction(action);
 		
 	}
 
@@ -29,15 +29,13 @@ public class APIServiceImpl implements IAPIService{
 	}
 
 	@Override
-	public void ajouterClient(Client nouveauClient) {
-		APiDAO.ajouterClient(nouveauClient);
-		
+	public List<Client> ajouterClient(Client nouveauClient) {
+		return APiDAO.ajouterClient(nouveauClient);
 	}
 
 	@Override
-	public void ajouterAction(Action nouvelleAction) {
-		APiDAO.ajouterAction(nouvelleAction);
-		
+	public List<Action> ajouterAction(Action nouvelleAction) {
+		return APiDAO.ajouterAction(nouvelleAction);	
 	}
 
 	@Override

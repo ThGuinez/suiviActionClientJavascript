@@ -1,14 +1,21 @@
 package fr.guinez.suivi.clients.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.guinez.suivi.clients.exception.ExceptionTechnique;
 import fr.guinez.suivi.clients.model.Action;
 import fr.guinez.suivi.clients.model.Client;
 import fr.guinez.suivi.clients.model.Historique;
@@ -21,8 +28,8 @@ public class ApiDaoImpl implements IApiDao {
 	@Autowired
 	private DataSource ds;
 
-	public void supprimerAction(Action action) {
-		// TODO Auto-generated method stub
+	public List<Action> supprimerAction(Action action) {
+		return null; // TODO Auto-generated method stub
 
 	}
 
@@ -33,31 +40,32 @@ public class ApiDaoImpl implements IApiDao {
 
 	@Transactional
 	@Override
-	public void ajouterClient(Client nouveauClient) {
+	public List<Client> ajouterClient(Client nouveauClient) {
 
-		/*
-		 * PersonneDaoImpl personneDao = new PersonneDaoImpl(ds); int idPersonne
-		 * = personneDao.creerPersonne(adherent.getPersonne());
-		 * 
-		 * StringBuilder rqt = new StringBuilder(); rqt.append(
-		 * "INSERT INTO adherent (date_inscription, statut, compte, id_personne, id_param_categorie_adherent) "
-		 * ); rqt.append("VALUES (?, ?, ?, ?, ?)"); PreparedStatement ps; int id
-		 * = 0; try { ps =
-		 * ds.getConnection().prepareStatement(rqt.toString(),Statement.
-		 * RETURN_GENERATED_KEYS); ps.setDate(1,
-		 * DateUtils.getSqlDate(DateUtils.today())); ps.setBoolean(2,
-		 * false);//mettre à true quand on crée une operation d'abonnement
-		 * ps.setFloat(3, 0); ps.setInt(4, idPersonne); ps.setInt(5,
-		 * adherent.getCategorie().getId()); ps.execute(); ResultSet keyset =
-		 * ps.getGeneratedKeys(); keyset.next(); id = keyset.getInt(1); } catch
-		 * (SQLException e) { logger.debug(e.getMessage()); throw new
-		 * ExceptionTechnique(e, e.getMessage()); } return id;
-		 */
-	}
+		// on enregistre  le nouveau client
+		StringBuilder rqt = new StringBuilder();
+		rqt.append("INSERT INTO client (nom,mel) ");
+		rqt.append("VALUES (?, ?)");
+		PreparedStatement ps;
+		int id = 0;
+		try {
+			ps = ds.getConnection().prepareStatement(rqt.toString());
+			ps.setString(1, nouveauClient.getNom());
+			ps.setString(2,nouveauClient.getMel());
+			ps.executeUpdate();
 
-	public void ajouterAction(Action nouvelleAction) {
+		} catch (SQLException e) {
+			logger.debug(e.getMessage());
+			throw new ExceptionTechnique(e, e.getMessage());
+		}	
+		
+		// on retourne la nouvelle liste de client
+		return listerClients(); 
+	} 
+
+	public List<Action> ajouterAction(Action nouvelleAction) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	public void ajouterHistorique(Historique nouvelHistorique) {
@@ -71,8 +79,23 @@ public class ApiDaoImpl implements IApiDao {
 	}
 
 	public List<Client> listerClients() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder rqt = new StringBuilder();
+		rqt.append("SELECT * FROM client ");
+		rqt.append("ORDER BY nom ASC");
+		ResultSet rs;
+		List<Client> listeClients = new ArrayList<>();
+		try {
+			rs = ds.getConnection().createStatement().executeQuery(rqt.toString());
+			while (rs.next()) {
+				
+				Client client = new Client(rs.getInt("id"),rs.getString("nom"),rs.getString("mel"));
+				listeClients.add(client);
+			}
+		} catch (SQLException e) {
+			logger.debug(e.getMessage());
+			throw new ExceptionTechnique(e, e.getMessage());
+		} 
+		return listeClients;
 	}
 
 }
