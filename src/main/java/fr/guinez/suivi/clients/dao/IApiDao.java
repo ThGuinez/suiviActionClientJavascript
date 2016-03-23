@@ -9,7 +9,7 @@ import fr.guinez.suivi.clients.model.Historique;
 
 public interface IApiDao {
 
-	List<Action> supprimerAction(int id);
+	void supprimerAction(int id);
 
 	void supprimerHistorique(int id);
 

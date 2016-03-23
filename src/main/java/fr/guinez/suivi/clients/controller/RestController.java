@@ -66,9 +66,8 @@ public class RestController {
 	}	
 
 	@RequestMapping(value="/api/v1/actions/{id}", method=RequestMethod.DELETE)
-	public List<Action> supprimerAction(@PathVariable("id") String id) {
-		List<Action> listeActions = APIService.supprimerAction(Integer.parseInt(id));
-		return listeActions;
+	public void supprimerAction(@PathVariable("id") String id) {
+		APIService.supprimerAction(Integer.parseInt(id));
 	}	
 	
 	// historiques

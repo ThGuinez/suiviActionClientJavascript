@@ -93,10 +93,7 @@ function recordAction() {
 								
 								// on recharge le tableau et on redéfinit les évènements click sur boutons supprimer et historique
 								generationTableauActions();
-								detectClicHisto();
-								detectClicSupp();
-								detectClicChang();
-								
+									
 								// ajout historique
 								var date = new Date();
 								var historique = {};

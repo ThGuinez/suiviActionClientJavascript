@@ -31,7 +31,7 @@ public class ApiDaoImpl implements IApiDao {
 
 	@Transactional
 	@Override
-	public List<Action> supprimerAction(int id) {
+	public void supprimerAction(int id) {
 		// on enregistre le nouveau client
 		StringBuilder rqt = new StringBuilder();
 		rqt.append("DELETE FROM action ");
@@ -40,13 +40,24 @@ public class ApiDaoImpl implements IApiDao {
 		try {
 			ps = ds.getConnection().prepareStatement(rqt.toString());
 			ps.executeUpdate();
+			// on efface les historiques correspondant
+			StringBuilder rqt2 = new StringBuilder();
+			rqt2.append("DELETE FROM historique ");
+			rqt2.append("WHERE action=" + id);
+			PreparedStatement ps2;
+			try{
+				ps2 = ds.getConnection().prepareStatement(rqt2.toString());
+				ps2.executeUpdate();
+			}catch(SQLException e){
+				logger.debug(e.getMessage());
+				throw new ExceptionTechnique(e, e.getMessage());
+			}
 
 		} catch (SQLException e) {
 			logger.debug(e.getMessage());
 			throw new ExceptionTechnique(e, e.getMessage());
 		}
 		// on retourne la nouvelle liste
-		return listerActions();
 	}
 
 	@Transactional

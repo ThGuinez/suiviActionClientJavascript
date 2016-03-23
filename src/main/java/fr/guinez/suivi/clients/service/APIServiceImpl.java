@@ -18,8 +18,8 @@ public class APIServiceImpl implements IAPIService{
 	IApiDao APiDAO;
 
 	@Override
-	public List<Action> supprimerAction(int id) {
-		return APiDAO.supprimerAction(id);
+	public void supprimerAction(int id) {
+		APiDAO.supprimerAction(id);
 		
 	}
 

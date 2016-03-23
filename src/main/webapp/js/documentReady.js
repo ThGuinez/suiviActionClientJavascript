@@ -124,6 +124,7 @@ function generationTableauActions() {
 						$("#contenuTableau").html(tableHTML);
 						detectClicHisto();
 						detectClicChang();
+						detectClicSupp();
 					}
 
 				}
