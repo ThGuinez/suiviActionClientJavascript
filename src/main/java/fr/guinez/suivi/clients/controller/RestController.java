@@ -84,6 +84,12 @@ public class RestController {
 		APIService.supprimerHistorique(Integer.parseInt(id));
 	}
 	
+	@RequestMapping(value="/api/v1/historiques", method=RequestMethod.GET)
+	public List<Historique> listerHistoriques() {
+		List<Historique> listeHistoriques = APIService.listerHistoriques();
+		return listeHistoriques;
+	}		
+	
 	// etats
 	
 	@RequestMapping(value="/api/v1/etats", method=RequestMethod.GET)

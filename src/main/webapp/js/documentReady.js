@@ -1,22 +1,11 @@
 $(document).ready(function() {
 
-	tableauEtat = new Array();
-	tableauEtat[0] = "Début projet";
-	tableauEtat[1] = "En cours";
-	tableauEtat[2] = "Devis envoyé";
-	tableauEtat[3] = "Devis accepté et signé";
-	tableauEtat[4] = "Réalisé";
-	tableauEtat[5] = "Fini";
-	tableauEtat[6] = "Fin projet";
-	tableauEtat[7] = "Litige";
-	tableauEtat[8] = "Abandonné";
-
 	recuperationLocalStorage();
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
 	generationTableauActions()
 	detectClicHisto();
-	detectClicChang
+	detectClicChang();
 
 });
 

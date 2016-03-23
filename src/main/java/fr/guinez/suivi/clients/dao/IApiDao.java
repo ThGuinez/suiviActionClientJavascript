@@ -29,4 +29,6 @@ public interface IApiDao {
 
 	Etat getEtatById(int id);
 
+	List<Historique> listerHistoriques();
+
 }

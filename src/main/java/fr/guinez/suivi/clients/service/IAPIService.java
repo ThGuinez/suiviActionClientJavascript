@@ -29,4 +29,7 @@ public interface IAPIService {
 
 	Etat getEtatById(int id);
 
+	List<Historique> listerHistoriques();
+
+
 }

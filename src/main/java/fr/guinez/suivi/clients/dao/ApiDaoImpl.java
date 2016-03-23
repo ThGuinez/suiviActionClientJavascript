@@ -224,6 +224,27 @@ public class ApiDaoImpl implements IApiDao {
 		return etat;
 	}
 
+	public Action getActionById(int id) {
+		StringBuilder rqt = new StringBuilder();
+		rqt.append("SELECT * FROM action ");
+		rqt.append("WHERE id=" + id);
+		ResultSet rs;
+		Action action = new Action();
+		try {
+			rs = ds.getConnection().createStatement().executeQuery(rqt.toString());
+			while (rs.next()) {
+				action.setId(rs.getInt("id"));
+				action.setClient(getClientById(rs.getInt("client")));
+				action.setTitre(rs.getString("titre"));
+				action.setEtat(getEtatById(rs.getInt("etat")));
+			}
+		} catch (SQLException e) {
+			logger.debug(e.getMessage());
+			throw new ExceptionTechnique(e, e.getMessage());
+		}
+		return action;
+	}
+	
 	public List<Etat> listerEtats() {
 		StringBuilder rqt = new StringBuilder();
 		rqt.append("SELECT * FROM etat ");
@@ -242,5 +263,25 @@ public class ApiDaoImpl implements IApiDao {
 			throw new ExceptionTechnique(e, e.getMessage());
 		}
 		return listeEtats;
+	}
+
+	@Override
+	public List<Historique> listerHistoriques() {
+		StringBuilder rqt = new StringBuilder();
+		rqt.append("SELECT * FROM historique ");
+		rqt.append("ORDER BY date DESC");
+		ResultSet rs;
+		List<Historique> listeHistoriques = new ArrayList<Historique>();
+		try {
+			rs = ds.getConnection().createStatement().executeQuery(rqt.toString());
+			while (rs.next()) {
+				Historique historique = new Historique(rs.getInt("id"), getActionById(rs.getInt("action")), rs.getDate("date"),getEtatById(rs.getInt("etat")));
+				listeHistoriques.add(historique);
+			}
+		} catch (SQLException e) {
+			logger.debug(e.getMessage());
+			throw new ExceptionTechnique(e, e.getMessage());
+		}
+		return listeHistoriques;
 	}
 }

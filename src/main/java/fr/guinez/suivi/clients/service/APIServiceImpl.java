@@ -72,5 +72,10 @@ public class APIServiceImpl implements IAPIService{
 	public Etat getEtatById(int id) {
 		return APiDAO.getEtatById(id);
 	}
+
+	@Override
+	public List<Historique> listerHistoriques() {
+		return APiDAO.listerHistoriques();
+	}
 	
 }

@@ -19,7 +19,17 @@ public class Historique {
 		this.date = date;
 		this.etat = etat;
 	}
+
 	
+	
+	public Historique(int id, Action action, Date date, Etat etat) {
+		super();
+		this.id = id;
+		this.action = action;
+		this.date = date;
+		this.etat = etat;
+	}
+
 	public int getId() {
 		return id;
 	}
