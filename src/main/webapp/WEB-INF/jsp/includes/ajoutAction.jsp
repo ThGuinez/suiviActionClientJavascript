@@ -10,7 +10,6 @@
 			</div>
 			<div class="modal-body">
 				<div id="containerAjoutAction">
-					<form role="form">
 						<div class="form-group">
 							<label for="nom">Titre :</label> <input type="text"
 								class="form-control" id="titre">
@@ -25,9 +24,8 @@
 								id="listeDeroulanteEtat">
 							</select>
 						</div>
-						<button id="enregistrerNouvelleAction" type="submit"
+						<button id="enregistrerNouvelleAction"
 							class="btn btn-default" data-dismiss="modal">Enregistrer</button>
-					</form>
 				</div>
 			</div>
 		</div>

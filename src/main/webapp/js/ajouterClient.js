@@ -3,38 +3,48 @@ $(function() {
 	$("#enregistrerNouveauClient").click(enregisterClient);
 	$("#randomClient").click(genererClient);
 
-	
 	function enregisterClient() {
 		var nom = $("#nom").val();
 		var mel = $("#mel").val();
 		var client = new Client(0, nom, mel);
-		
-		console.log(client);
-		
-		$.ajax({
-			url : '/api/v1/clients',
-			type : 'POST',
-			data : JSON.stringify(client),
-			contentType: 'application/json',
-			dataType : 'json',
-			success : function(data) {
-				generationListeDeroulanteClientFormAction(listeDesClients);
-				testnavbar();
-				$("#nom").val("");
-				$("#mel").val("");
-			}
-		});
+
+		if (nom.length > 0 && mel.length > 0) {
+			
+			console.log("ok");
+			
+			$.ajax({
+				url : '/api/v1/clients',
+				type : 'POST',
+				data : JSON.stringify(client),
+				contentType : 'application/json',
+				dataType : 'json',
+				success : function(data) {
+				    $("#myModalClient").modal('toggle');
+					generationListeDeroulanteClientFormAction(listeDesClients);
+					testnavbar();
+					$("#nom").val("");
+					$("#mel").val("");
+				}
+			});
+		}
+		else{
+			
+			console.log("no");
+			
+		      $(".messAlert").addClass("alert");
+		      var counter = 0;
+		      var interval = setInterval(function() {
+		            counter++;
+		            // Display 'counter' wherever you want to display it.
+		            if (counter == 3) {
+		                // Display a login box
+		                clearInterval(interval);
+		                $(".messAlert").removeClass("alert");
+		            }
+		          }, 1000);
+		}
 	};
 
-	function nouvelIdClient() {
-		var nb = listeDesClients.length;
-		if (nb > 0) {
-			var lastId = listeDesClients[nb - 1].id;
-			return lastId + 1;
-		} else {
-			return 1;
-		}
-	}
 
 	function genererClient() {
 		$.ajax({

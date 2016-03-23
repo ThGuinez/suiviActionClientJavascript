@@ -50,75 +50,82 @@ function recordAction() {
 		var titre = $("#titre").val();
 		var idClient = $("select[id='listeDeroulanteClients']").val();
 		var idEtat = $("select[id='listeDeroulanteEtat']").val();
-		//console.log(idEtat);
+		// console.log(idEtat);
 
-		// ajax#1 on récupère le client complet
-		$.ajax({
-			url : '/api/v1/client/' + idClient,
-			type : 'GET',
-			dataType : 'json',
-			success : function(dataClient) {
+		if (titre.length > 0) {
 
-				// ajax#2 on récupère l'état complet
-				$.ajax({
-					url : '/api/v1/etat/' + idEtat,
-					type : 'GET',
-					dataType : 'json',
-					success : function(dataEtat) {
+			// ajax#1 on récupère le client complet
+			$.ajax({
+				url : '/api/v1/client/' + idClient,
+				type : 'GET',
+				dataType : 'json',
+				success : function(dataClient) {
 
-						var client = {}
-						client["id"] = dataClient.id;
-						client["nom"] = dataClient.nom;
-						client["mel"] = dataClient.mel;
-						var etat = {}
-						etat["id"] = dataEtat.id;
-						etat["libelle"] = dataEtat.libelle;
-						var action = {};
-						action["id"] = 0;
-						action["titre"] = titre;
-						action["etat"] = etat;
-						action["client"] = client;
-						actionJ = JSON.stringify(action);
-						// on affiche l'objet JSON actionJ
-						//console.log(actionJ);
-						
-						// ajax#3 On ajoute l'action
-						$.ajax({
-							url : '/api/v1/actions',
-							type : 'POST',
-							data : actionJ,
-							contentType : 'application/json',
-							dataType : 'json',
-							success : function(act) {
-								
-								// on recharge le tableau et on redéfinit les évènements click sur boutons supprimer et historique
-								generationTableauActions();
-									
-								// ajout historique
-								var date = new Date();
-								var historique = {};
-								historique["id"]=0;
-								historique["action"]=act;
-								historique["date"]=date.getFullYear()+'-'+(date.getMonth() + 1)+'-'+date.getDate();
-								historique["etat"]=etat;
-							
-								$("#titre").val("");
-								
-								// ajax#4 On ajoute l'historique
-								$.ajax({
-									url : '/api/v1/historiques',
-									type : 'POST',
-									data : JSON.stringify(historique),
-									contentType : 'application/json',
-									dataType : 'json'
+					// ajax#2 on récupère l'état complet
+					$.ajax({
+						url : '/api/v1/etat/' + idEtat,
+						type : 'GET',
+						dataType : 'json',
+						success : function(dataEtat) {
+
+							var client = {}
+							client["id"] = dataClient.id;
+							client["nom"] = dataClient.nom;
+							client["mel"] = dataClient.mel;
+							var etat = {}
+							etat["id"] = dataEtat.id;
+							etat["libelle"] = dataEtat.libelle;
+							var action = {};
+							action["id"] = 0;
+							action["titre"] = titre;
+							action["etat"] = etat;
+							action["client"] = client;
+							actionJ = JSON.stringify(action);
+							// on affiche l'objet JSON actionJ
+							// console.log(actionJ);
+
+							// ajax#3 On ajoute l'action
+							$.ajax({
+								url : '/api/v1/actions',
+								type : 'POST',
+								data : actionJ,
+								contentType : 'application/json',
+								dataType : 'json',
+								success : function(act) {
+
+									// on recharge le tableau et on redéfinit
+									// les évènements click sur boutons
+									// supprimer et historique
+									generationTableauActions();
+
+									// ajout historique
+									var date = new Date();
+									var historique = {};
+									historique["id"] = 0;
+									historique["action"] = act;
+									historique["date"] = date.getFullYear()
+											+ '-' + (date.getMonth() + 1) + '-'
+											+ date.getDate();
+									historique["etat"] = etat;
+
+									$("#titre").val("");
+
+									// ajax#4 On ajoute l'historique
+									$.ajax({
+										url : '/api/v1/historiques',
+										type : 'POST',
+										data : JSON.stringify(historique),
+										contentType : 'application/json',
+										dataType : 'json'
 									});
-							}
-						});
-						
-					}
-				});
+								}
+							});
 
-			}
-		});
+						}
+					});
+
+				}
+			});
+		}
 	}
 }

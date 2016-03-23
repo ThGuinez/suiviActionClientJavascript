@@ -13,5 +13,5 @@ function detectRecherche(){
 
 function rechercher(chaine){
 	console.log(chaine);
-	// aficher le tableau mais en filtrant les résultats en fonction de la chaine recherchée
+	generationTableauActionsRecherche(chaine);
 }
