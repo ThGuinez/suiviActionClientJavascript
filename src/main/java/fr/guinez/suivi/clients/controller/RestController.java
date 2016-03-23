@@ -44,13 +44,19 @@ public class RestController {
 		return listeClients;
 	}
 	
+	@RequestMapping(value="/api/v1/client/{id}", method=RequestMethod.GET)
+	public Client getClientById(@PathVariable("id") String id) {
+		Client client = APIService.getClientById(Integer.parseInt(id));
+		return client;
+	}	
+	
 	// actions
 	
 	@RequestMapping(value="/api/v1/actions", method=RequestMethod.POST)
-	public List<Action> ajouterAction(@RequestBody Action action) {
+	public Action ajouterAction(@RequestBody Action action) {
 		Action nouvelleAction = new Action(action.getTitre(),action.getEtat(),action.getClient());
-		List<Action> listeActions = APIService.ajouterAction(nouvelleAction);
-		return listeActions;
+		Action act = APIService.ajouterAction(nouvelleAction);
+		return act;
 	}	
 	
 	@RequestMapping(value="/api/v1/actions", method=RequestMethod.GET)
@@ -85,4 +91,10 @@ public class RestController {
 		List<Etat> listeEtats = APIService.listerEtats();
 		return listeEtats;
 	}
+	
+	@RequestMapping(value="/api/v1/etat/{id}", method=RequestMethod.GET)
+	public Etat getEtatById(@PathVariable("id") String id) {
+		Etat etat = APIService.getEtatById(Integer.parseInt(id));
+		return etat;
+	}	
 }

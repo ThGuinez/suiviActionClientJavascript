@@ -17,12 +17,16 @@ public interface IApiDao {
 
 	void ajouterHistorique(Historique nouvelHistorique);
 
-	List<Action> ajouterAction(Action nouvelleAction);
+	Action ajouterAction(Action nouvelleAction);
 
 	List<Client> listerClients();
 
 	List<Action> listerActions();
 
 	List<Etat> listerEtats();
+
+	Client getClientById(int id);
+
+	Etat getEtatById(int id);
 
 }

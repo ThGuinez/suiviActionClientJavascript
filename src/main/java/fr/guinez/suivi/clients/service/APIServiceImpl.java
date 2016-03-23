@@ -35,7 +35,7 @@ public class APIServiceImpl implements IAPIService{
 	}
 
 	@Override
-	public List<Action> ajouterAction(Action nouvelleAction) {
+	public Action ajouterAction(Action nouvelleAction) {
 		return APiDAO.ajouterAction(nouvelleAction);	
 	}
 
@@ -61,6 +61,16 @@ public class APIServiceImpl implements IAPIService{
 	public List<Etat> listerEtats() {
 		List<Etat> listeEtats = APiDAO.listerEtats();
 		return listeEtats;
+	}
+
+	@Override
+	public Client getClientById(int id) {
+		return APiDAO.getClientById(id);
+	}
+
+	@Override
+	public Etat getEtatById(int id) {
+		return APiDAO.getEtatById(id);
 	}
 	
 }

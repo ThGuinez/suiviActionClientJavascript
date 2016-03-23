@@ -15,7 +15,7 @@ public interface IAPIService {
 
 	List<Client> ajouterClient(Client nouveauClient);
 
-	List<Action> ajouterAction(Action nouvelleAction);
+	Action ajouterAction(Action nouvelleAction);
 
 	void ajouterHistorique(Historique nouvelHistorique);
 
@@ -24,5 +24,9 @@ public interface IAPIService {
 	List<Action> listerActions();
 
 	List<Etat> listerEtats();
+	
+	Client getClientById(int id);
+
+	Etat getEtatById(int id);
 
 }

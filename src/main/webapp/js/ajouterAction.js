@@ -48,49 +48,80 @@ function recordAction() {
 	function enregisterAction() {
 
 		var titre = $("#titre").val();
-		var client = $("select[id='listeDeroulanteClients']").val();
-		var etat = $("select[id='listeDeroulanteEtat']").val();
-		var action = new Action(0, titre, etat, client);
+		var idClient = $("select[id='listeDeroulanteClients']").val();
+		var idEtat = $("select[id='listeDeroulanteEtat']").val();
+		//console.log(idEtat);
 
+		// ajax#1 on récupère le client complet
 		$.ajax({
-			url : '/api/v1/actions',
-			type : 'POST',
-			data : JSON.stringify(action),
-			contentType : 'application/json',
+			url : '/api/v1/client/' + idClient,
+			type : 'GET',
 			dataType : 'json',
-			success : function(data) {
-				// ajout historique
-				var date = new Date();
-				var stringDate = date.getDate() + "/" + (date.getMonth() + 1)
-						+ "/" + date.getFullYear();
-				var historique = new Historique(id, stringDate, etat);
+			success : function(dataClient) {
 
+				// ajax#2 on récupère l'état complet
 				$.ajax({
-					url : '/api/v1/historiques',
-					type : 'POST',
-					data : JSON.stringify(historique),
-					contentType : 'application/json',
+					url : '/api/v1/etat/' + idEtat,
+					type : 'GET',
 					dataType : 'json',
-					success : function(data) {
-						$("#titre").val("");
-						generationTableauActions();
-						detectClicHisto();
-						detectClicSupp();
-						detectClicChang();
+					success : function(dataEtat) {
+
+						var client = {}
+						client["id"] = dataClient.id;
+						client["nom"] = dataClient.nom;
+						client["mel"] = dataClient.mel;
+						var etat = {}
+						etat["id"] = dataEtat.id;
+						etat["libelle"] = dataEtat.libelle;
+						var action = {};
+						action["id"] = 0;
+						action["titre"] = titre;
+						action["etat"] = etat;
+						action["client"] = client;
+						actionJ = JSON.stringify(action);
+						// on affiche l'objet JSON actionJ
+						//console.log(actionJ);
+						
+						// ajax#3 On ajoute l'action
+						$.ajax({
+							url : '/api/v1/actions',
+							type : 'POST',
+							data : actionJ,
+							contentType : 'application/json',
+							dataType : 'json',
+							success : function(act) {
+								
+								// on recharge le tableau et on redéfinit les évènements click sur boutons supprimer et historique
+								generationTableauActions();
+								detectClicHisto();
+								detectClicSupp();
+								detectClicChang();
+								
+								// ajout historique
+								var date = new Date();
+								var historique = {};
+								historique["id"]=0;
+								historique["action"]=act;
+								historique["date"]=date.getFullYear()+'-'+(date.getMonth() + 1)+'-'+date.getDate();
+								historique["etat"]=etat;
+							
+								$("#titre").val("");
+								
+								// ajax#4 On ajoute l'historique
+								$.ajax({
+									url : '/api/v1/historiques',
+									type : 'POST',
+									data : JSON.stringify(historique),
+									contentType : 'application/json',
+									dataType : 'json'
+									});
+							}
+						});
+						
 					}
 				});
+
 			}
 		});
-
-	}
-}
-
-function nouvelIdAction() {
-	var nb = listeActionsClients.length;
-	if (nb > 0) {
-		var lastId = listeActionsClients[nb - 1].id;
-		return lastId + 1;
-	} else {
-		return 1;
 	}
 }

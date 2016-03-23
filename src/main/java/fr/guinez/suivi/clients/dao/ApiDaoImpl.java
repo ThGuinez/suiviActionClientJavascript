@@ -93,19 +93,28 @@ public class ApiDaoImpl implements IApiDao {
 
 	@Transactional
 	@Override
-	public List<Action> ajouterAction(Action nouvelleAction) {
+	public Action ajouterAction(Action nouvelleAction) {
 		// on enregistre le nouveau client
 		StringBuilder rqt = new StringBuilder();
 		rqt.append("INSERT INTO action (titre,etat,client) ");
 		rqt.append("VALUES (?, ?, ?)");
 		PreparedStatement ps;
-		int id = 0;
+		Action action = new Action();
 		try {
-			ps = ds.getConnection().prepareStatement(rqt.toString());
+			ps = ds.getConnection().prepareStatement(rqt.toString(),Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nouvelleAction.getTitre());
 			ps.setInt(2, nouvelleAction.getEtat().getId());
 			ps.setInt(3, nouvelleAction.getClient().getId());
 			ps.executeUpdate();
+			// on récupère l'id attribué
+			ResultSet keyset = ps.getGeneratedKeys();
+			keyset.next();
+			int id = keyset.getInt(1);
+			// on crée l'objet action qu'on va retourner
+			action.setId(id);
+			action.setClient(nouvelleAction.getClient());
+			action.setEtat(nouvelleAction.getEtat());
+			action.setTitre(nouvelleAction.getTitre());
 
 		} catch (SQLException e) {
 			logger.debug(e.getMessage());
@@ -113,7 +122,7 @@ public class ApiDaoImpl implements IApiDao {
 		}
 
 		// on retourne la nouvelle liste de client
-		return listerActions();
+		return action;
 	}
 
 	@Transactional
@@ -147,7 +156,7 @@ public class ApiDaoImpl implements IApiDao {
 		try {
 			rs = ds.getConnection().createStatement().executeQuery(rqt.toString());
 			while (rs.next()) {
-				Action action = new Action(rs.getInt("id"), rs.getString("titre"), getEtatById(rs.getInt("client")),
+				Action action = new Action(rs.getInt("id"), rs.getString("titre"), getEtatById(rs.getInt("etat")),
 						getClientById(rs.getInt("client")));
 				listeActions.add(action);
 			}
@@ -205,7 +214,8 @@ public class ApiDaoImpl implements IApiDao {
 		try {
 			rs = ds.getConnection().createStatement().executeQuery(rqt.toString());
 			while (rs.next()) {
-				etat = new Etat(rs.getInt("id"), rs.getString("libelle"));
+				etat.setId(rs.getInt("id"));
+				etat.setLibelle(rs.getString("libelle"));
 			}
 		} catch (SQLException e) {
 			logger.debug(e.getMessage());
