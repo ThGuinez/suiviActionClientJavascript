@@ -40,12 +40,6 @@
 	<!-------------- AJOUT ACTION ----------->
 	
 					<li ><a id="navbarAction" href="#myModalAction" data-toggle="modal" data-target="#myModalAction">NOUVELLE ACTION<span class="sr-only"></span></a></li>
-	
-	<!-------------- LOGOUT ------------->
-         		
-         			<c:url value="/logout" var="logoutUrl"/>
-         			<li><a href="${logoutUrl}">DÉCONNEXION ${user} <span class="sr-only"></span></a></li>
-	               
                
                 </ul>		
             </div>

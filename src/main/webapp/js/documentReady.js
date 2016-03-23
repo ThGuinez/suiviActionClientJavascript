@@ -4,8 +4,6 @@ $(document).ready(function() {
 	generationListeDeroulanteClientFormAction(listeDesClients);
 	generationListeDeroulanteEtat(listeDesClients);
 	generationTableauActions()
-	detectClicHisto();
-	detectClicChang();
 
 });
 
@@ -76,14 +74,13 @@ function generationListeDeroulanteEtatAvecSelected(idEtat) {
 		dataType : 'json',
 		async: false,
 		success : function(data) {
-			console.log(data);
+			// console.log(data);
 			//console.log("longeur:"+data.length);
 			for (var i = 0; i < data.length; i++) {
 				if (data[i].id == idEtat) {
 					stringSelected = " selected ";
 					//console.log("paf");
 				}
-				codeHTMLB += '<!-- iteration '+i+'-->';
 				codeHTMLB += '<option value="'+data[i].id+'"'+ stringSelected+'>'+ data[i].libelle+'</option>';
 				stringSelected = "";
 
@@ -125,6 +122,8 @@ function generationTableauActions() {
 							// console.log(generationListeDeroulanteEtatAvecSelected(data[i].etat.id));
 						}
 						$("#contenuTableau").html(tableHTML);
+						detectClicHisto();
+						detectClicChang();
 					}
 
 				}
