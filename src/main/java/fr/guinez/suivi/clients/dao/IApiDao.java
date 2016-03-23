@@ -31,4 +31,6 @@ public interface IApiDao {
 
 	List<Historique> listerHistoriques();
 
+	void modifierAction(Action action);
+
 }

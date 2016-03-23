@@ -70,6 +70,11 @@ public class RestController {
 		APIService.supprimerAction(Integer.parseInt(id));
 	}	
 	
+	@RequestMapping(value="/api/v1/actions", method=RequestMethod.PUT)
+	public void modifierAction(@RequestBody Action action) {
+		APIService.modifierAction(action);
+	}	
+	
 	// historiques
 
 	@RequestMapping(value="/api/v1/historiques", method=RequestMethod.POST)

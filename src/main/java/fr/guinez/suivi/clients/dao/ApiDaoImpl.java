@@ -35,10 +35,11 @@ public class ApiDaoImpl implements IApiDao {
 		// on enregistre le nouveau client
 		StringBuilder rqt = new StringBuilder();
 		rqt.append("DELETE FROM action ");
-		rqt.append("WHERE id=" + id);
+		rqt.append("WHERE id = ?");
 		PreparedStatement ps;
 		try {
 			ps = ds.getConnection().prepareStatement(rqt.toString());
+			ps.setInt(1, id);
 			ps.executeUpdate();
 			// on efface les historiques correspondant
 			StringBuilder rqt2 = new StringBuilder();
@@ -65,10 +66,11 @@ public class ApiDaoImpl implements IApiDao {
 		// on enregistre le nouveau client
 		StringBuilder rqt = new StringBuilder();
 		rqt.append("DELETE FROM historique ");
-		rqt.append("WHERE id=" + id);
+		rqt.append("WHERE id= ? ");
 		PreparedStatement ps;
 		try {
 			ps = ds.getConnection().prepareStatement(rqt.toString());
+			ps.setInt(1, id);
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
@@ -295,4 +297,26 @@ public class ApiDaoImpl implements IApiDao {
 		}
 		return listeHistoriques;
 	}
-}
+
+
+	@Transactional
+	@Override
+	public void modifierAction(Action action) {
+		// on enregistre le nouveau client
+		StringBuilder rqt = new StringBuilder();
+		rqt.append("UPDATE action SET  etat = ? ");
+		rqt.append("WHERE id = ?");
+		
+		PreparedStatement ps;
+		try {
+			ps = ds.getConnection().prepareStatement(rqt.toString());
+			ps.setInt(1, action.getEtat().getId());
+			ps.setInt(2, action.getId());
+			ps.executeUpdate();
+	
+		} catch (SQLException e) {
+			logger.debug(e.getMessage());
+			throw new ExceptionTechnique(e, e.getMessage());
+		}
+
+	}}

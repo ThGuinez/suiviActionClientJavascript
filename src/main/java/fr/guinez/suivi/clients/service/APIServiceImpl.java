@@ -77,5 +77,11 @@ public class APIServiceImpl implements IAPIService{
 	public List<Historique> listerHistoriques() {
 		return APiDAO.listerHistoriques();
 	}
+
+	@Override
+	public void modifierAction(Action action) {
+		APiDAO.modifierAction(action);
+		
+	}
 	
 }
