@@ -12,9 +12,10 @@
 	<!-- navBar -->
 	<%@ include file="includes/navbar.jsp"%>
 
+
 	<!-- recherche -->
 	<%@ include file="includes/recherche.jsp"%>
-
+	
 	<!-- tableau -->
 	<%@ include file="includes/tableau.jsp"%>
 

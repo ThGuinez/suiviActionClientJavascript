@@ -63,33 +63,25 @@ function generationListeDeroulanteEtat() {
 
 }
 
-function generationListeDeroulanteEtatAvecSelected(idEtat) {
+function generationListeDeroulanteEtatAvecSelected(idEtat,actid) {
 
 	var codeHTMLB = "";
 	var stringSelected = "";
-	codeHTMLB += '<select class="listeEtatTableau">';
 	$.ajax({
 		url : '/api/v1/etats',
 		type : 'GET',
 		dataType : 'json',
-		async: false,
 		success : function(data) {
-			// console.log(data);
-			//console.log("longeur:"+data.length);
 			for (var i = 0; i < data.length; i++) {
 				if (data[i].id == idEtat) {
 					stringSelected = " selected ";
-					//console.log("paf");
 				}
 				codeHTMLB += '<option value="'+data[i].id+'"'+ stringSelected+'>'+ data[i].libelle+'</option>';
 				stringSelected = "";
-
 			}
-
+			$('.listeEtatTableau[actid='+actid+']').html(codeHTMLB);
 		}
 	});
-	codeHTMLB += '</select>';
-	return codeHTMLB;
 }
 
 function generationTableauActions() {
@@ -116,15 +108,18 @@ function generationTableauActions() {
 									+ '</td><td>'
 									+ data[i].client.nom
 									+ '</td><td>'
-									+ generationListeDeroulanteEtatAvecSelected(data[i].etat.id)
+									+ '<select class="listeEtatTableau" actid="'+data[i].id+'">'
+									+ generationListeDeroulanteEtatAvecSelected(data[i].etat.id,data[i].id)
+									+'</select>'
 									+ '</td><td><button type="button" class="btn btn-default btn-lg boutHistorique" data-toggle="modal" data-target="#myModalHistoriqueEtat"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></button></td>'
-									+ '<td><button type="button" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
+									+ '<td><button type="button" actionid="'+data[i].id+'" class="btn btn-default btn-lg boutSuppression" data-toggle="modal" data-target="#myModalSuppressionAction"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td></tr>';
 							// console.log(generationListeDeroulanteEtatAvecSelected(data[i].etat.id));
 						}
 						$("#contenuTableau").html(tableHTML);
 						detectClicHisto();
 						detectClicChang();
 						detectClicSupp();
+						detectRecherche();
 					}
 
 				}

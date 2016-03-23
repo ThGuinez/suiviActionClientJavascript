@@ -1,4 +1,3 @@
- <h2 class="titre2" >Suivi d'actions clients</h2>
   <table class="table tableau">
     <thead>
       <tr>

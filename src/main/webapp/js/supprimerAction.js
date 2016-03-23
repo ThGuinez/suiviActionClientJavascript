@@ -2,14 +2,15 @@ var actionid;
 
 function detectClicSupp(){
 	$(".boutSuppression").click(function() {
-		actionid = $(".boutSuppression").parent("td").parent("tr").attr('actionid');
+		actionid = $(this).attr('actionid');
+		console.log(actionid);
 	});
 }
 
 $(function() {
 	
 	$("#validerSuppressionAction").click(function(){
-		//alert(actionid);
+		//console.log(actionid);
 		supprimerAction(actionid);
 	});
 	

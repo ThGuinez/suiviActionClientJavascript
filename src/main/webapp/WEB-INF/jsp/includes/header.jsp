@@ -36,12 +36,14 @@
 <c:url value='js/changementEtat.js' var="changementEtat"/>
 <script src="${changementEtat}"></script>
 
+<c:url value='js/rechercher.js' var="rechercher"/>
+<script src="${rechercher}"></script>
 
 
 
 <!-- Bootstrap -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<c:url value='/css/base.css' var="baseCssUrl"/>
+<c:url value='/css/base1.css' var="baseCssUrl"/>
 <link href="${baseCssUrl}" rel="stylesheet">
 
 
